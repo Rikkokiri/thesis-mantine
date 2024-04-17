@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "types": ["node", "@testing-library/jest-dom", "vitest/globals"],
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
+    "allowJs": false,
     "skipLibCheck": true,
 
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
+      "@test-utils": ["./test-utils"],
       "@components/*": ["./src/components/*"],
       "@stores/*": ["./src/stores/*"],
       "@data/*": ["./src/data/*"],
@@ -16,20 +20,24 @@
     },
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
 
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+
     /* Linting */
     "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "@types"],
+  "include": ["src", "test-utils", "@types"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
