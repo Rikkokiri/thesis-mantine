@@ -4,18 +4,12 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+
+    /* Path mapping */
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@test-utils": ["./test-utils"],
@@ -23,7 +17,26 @@
       "@stores/*": ["./src/stores/*"],
       "@data/*": ["./src/data/*"],
       "@hooks/*": ["./src/hooks/*"]
-    }
+    },
+
+    /* Bundler mode */
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+
+    /* Linting */
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "test-utils"]
+  "include": ["src", "test-utils", "@types"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
