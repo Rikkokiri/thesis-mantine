@@ -61,9 +61,7 @@ export const getAllCandidatesAnswers = () => {
   return CANDIDATE_ANSWERS;
 };
 
-export const getCandidatesAnswersById = (
-  candidateId: string,
-): SingleCandidateAnswers => {
+export const getCandidatesAnswersById = (candidateId: string): SingleCandidateAnswers => {
   return CANDIDATE_ANSWERS[candidateId];
 };
 

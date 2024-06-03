@@ -107,12 +107,9 @@ describe("matchPercentage", () => {
 
     const candidate = shared;
 
-    test.each(userCases)(
-      "user answer %o, candidate answer undefined",
-      (userAnswers) => {
-        expect(matchPercentage(userAnswers, candidate)).toBe(75);
-      },
-    );
+    test.each(userCases)("user answer %o, candidate answer undefined", (userAnswers) => {
+      expect(matchPercentage(userAnswers, candidate)).toBe(75);
+    });
   });
 
   // describe("user not answering questions does not affect match score", () => {});

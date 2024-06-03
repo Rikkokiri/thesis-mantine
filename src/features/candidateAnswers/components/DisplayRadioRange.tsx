@@ -1,7 +1,7 @@
 import { QuestionType } from "@data/types";
 import "../styles/DisplayRadioRange.css";
-import { SmallSpeechBubble } from "./SmallSpeechBubble";
 import { useTranslation } from "react-i18next";
+import { SmallSpeechBubble } from "./SmallSpeechBubble";
 import { CandidateIndicator } from "./CandidateIndicator";
 
 interface IDisplayRadioOption {
@@ -40,18 +40,16 @@ export const DisplayRadioRange = (props: IDisplayRadioRangeProps) => {
               id={`radio-option-${option.value}`}
               value={option.value}
               checked={option.isChecked}
-              readOnly={true}
+              readOnly
               className={props.isReadonly ? "readonly" : ""}
             />
             {option.isChecked && (
-              <div
-                className={`option__indicator ${option.indicatorClassName ?? ""}`}
-              >
+              <div className={`option__indicator ${option.indicatorClassName ?? ""}`}>
                 {candidateAnswer === option.value && (
                   <CandidateIndicator
                     imgSrc={option.indicatorImgSrc ?? ""}
                     className="candidate-indicator"
-                    alt={""} // TODO: Meaningful alt text
+                    alt="" // TODO: Meaningful alt text
                   />
                 )}
               </div>

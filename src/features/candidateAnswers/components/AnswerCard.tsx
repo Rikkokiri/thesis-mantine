@@ -1,13 +1,13 @@
 import "../styles/AnswerCard.css";
 import { useTranslation } from "react-i18next";
-import { Tag } from "../../../components/Tag/Tag";
 import { Question } from "@data/types";
-import { RadioAnswer } from "./RadioAnswer";
-import { YesOrNoAnswer } from "./YesOrNoAnswer";
 import { CandidateAnswer } from "@data/candidateAnswers";
-import { CommentCard } from "./CommentCard";
 import { useLocalizedString } from "@hooks/useLocalizedString";
 import { getAnswerByQuestionId } from "@stores/answerStore";
+import { Tag } from "../../../components/Tag/Tag";
+import { RadioAnswer } from "./RadioAnswer";
+import { YesOrNoAnswer } from "./YesOrNoAnswer";
+import { CommentCard } from "./CommentCard";
 
 interface ICardProps {
   question: Question;
@@ -22,9 +22,7 @@ export const AnswerCard = (props: ICardProps) => {
   const { localize } = useLocalizedString();
   const questionId = question.id;
 
-  const candidateComment = candidateAnswer?.comment
-    ? localize(candidateAnswer.comment)
-    : undefined;
+  const candidateComment = candidateAnswer?.comment ? localize(candidateAnswer.comment) : undefined;
 
   const userAnswer = getAnswerByQuestionId(question.id);
 
@@ -52,7 +50,7 @@ export const AnswerCard = (props: ICardProps) => {
       )}
       {candidateComment && (
         <CommentCard
-          header={"Candidate name"} // TODO: Pass candidate's name
+          header="Candidate name" // TODO: Pass candidate's name
           body={candidateComment}
           questionType={question.questionType}
           answer={candidateAnswer?.answer}

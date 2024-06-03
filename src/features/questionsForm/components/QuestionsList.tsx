@@ -1,6 +1,6 @@
+import { Question } from "src/data/types";
 import { QuestionCard } from "./QuestionCard";
 import { IQuestionsForm } from "../hooks/useQuestionsForm";
-import { Question } from "src/data/types";
 import "../styles/QuestionsForm.css";
 
 export const QuestionsList = (props: IQuestionsForm) => {

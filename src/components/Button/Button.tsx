@@ -32,6 +32,7 @@ export const Button = ({
 }: IButtonProps) => {
   return (
     <button
+      type="button"
       disabled={isDisabled}
       className={`button button--${variant} ${className ?? ""} button--${size}`}
       onClick={onClick}
@@ -43,14 +44,7 @@ export const Button = ({
   );
 };
 
-const ButtonIcon = (props: {
-  icon?: JSX.Element;
-  iconSize: ButtonIconSize;
-}) => {
+const ButtonIcon = (props: { icon?: JSX.Element; iconSize: ButtonIconSize }) => {
   if (!props.icon) return null;
-  return (
-    <span className={`icon icon-before icon-${props.iconSize}`}>
-      {props.icon}
-    </span>
-  );
+  return <span className={`icon icon-before icon-${props.iconSize}`}>{props.icon}</span>;
 };

@@ -10,11 +10,7 @@ interface ICandidateModalProps {
   candidate: MatchWithDetails;
 }
 
-export const CandidateModal = ({
-  isOpen,
-  closeModal,
-  candidate,
-}: ICandidateModalProps) => {
+export const CandidateModal = ({ isOpen, closeModal, candidate }: ICandidateModalProps) => {
   const { t } = useTranslation();
   const { name, percentage, logoSrc, brandColor } = candidate;
 
@@ -22,7 +18,7 @@ export const CandidateModal = ({
     <Modal isOpen={isOpen} closeModal={closeModal}>
       <div className="candidate-modal__body">
         <div className="candidate-modal__img-wrapper">
-          <img src={logoSrc} aria-hidden className="candidate-modal__img" />
+          <img src={logoSrc} aria-hidden className="candidate-modal__img" alt="" />
           <div
             className="candidate-modal__score-visual"
             aria-hidden
@@ -38,11 +34,7 @@ export const CandidateModal = ({
         </div>
       </div>
       <div className="candidate-modal__actions">
-        <ButtonLink
-          to={`/candidates/${candidate.id}`}
-          variant="outline"
-          size="small"
-        >
+        <ButtonLink to={`/candidates/${candidate.id}`} variant="outline" size="small">
           {t("candidate.getToKnow")}
         </ButtonLink>
       </div>

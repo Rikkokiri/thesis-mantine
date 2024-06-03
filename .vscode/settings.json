@@ -1,7 +1,7 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.configPath": ".prettierrc",
+  "prettier.configPath": ".prettierrc.js",
   "cSpell.words": [
     "Avenir",
     "CHAKRA",
@@ -12,7 +12,6 @@
     "untoggled",
     "zustand"
   ],
-
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#62b1f3",
     "activityBar.background": "#62b1f3",

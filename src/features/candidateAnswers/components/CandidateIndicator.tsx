@@ -6,12 +6,10 @@ interface ICandidateIndicatorProps {
   imgSrc: string;
 }
 
-export const CandidateIndicator = (props: ICandidateIndicatorProps) => {
-  return (
-    <img
-      src={props.imgSrc}
-      alt={props.alt}
-      className={`candidate-indicator ${props.className || ""}`}
-    />
-  );
-};
+export const CandidateIndicator = (props: ICandidateIndicatorProps) => (
+  <img
+    src={props.imgSrc}
+    alt={props.alt}
+    className={`candidate-indicator ${props.className || ""}`}
+  />
+);

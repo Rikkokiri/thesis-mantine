@@ -17,13 +17,10 @@ export const answerMatchScore = (answer1: number, answer: number): number => {
  *          100 if candidate has answered the same way to all the questions
  *          that user has answered.
  */
-export const matchPercentage = (
-  user: AnswerValuesRecord,
-  candidate: AnswerValuesRecord,
-) => {
+export const matchPercentage = (user: AnswerValuesRecord, candidate: AnswerValuesRecord) => {
   const allQuestionIds: number[] = Object.keys(user).map(Number);
   const questionsUserAnswered = allQuestionIds.filter(
-    (questionId: number) => user[questionId] !== undefined, // && candidate[questionId] !== null,
+    (questionId: number) => user[questionId] !== undefined // && candidate[questionId] !== null,
   );
 
   if (questionsUserAnswered.length === 0) return 0;
@@ -37,8 +34,7 @@ export const matchPercentage = (
     return answerMatchScore(userAnswer!, candidateAnswer);
   });
 
-  const score =
-    matchScores.reduce((acc, score) => acc + score, 0) / matchScores.length;
+  const score = matchScores.reduce((acc, score) => acc + score, 0) / matchScores.length;
   return roundToTwoDecimals(score);
 };
 

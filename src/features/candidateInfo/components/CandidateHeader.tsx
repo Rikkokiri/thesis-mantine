@@ -1,9 +1,7 @@
 import "../styles/CandidateHeader.css";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
 
-export const CandidateIntroHeader = (
-  props: ReturnType<typeof useCandidateInfo>,
-) => {
+export const CandidateIntroHeader = (props: ReturnType<typeof useCandidateInfo>) => {
   const { t, candidate } = props;
 
   if (!candidate) {
@@ -19,8 +17,7 @@ export const CandidateIntroHeader = (
       {candidate.organization ||
         (candidate.creator && (
           <p className="candidate-header__organization m-0">
-            {t("candidate.createdBy")}{" "}
-            {candidate.organization || candidate.creator}
+            {t("candidate.createdBy")} {candidate.organization || candidate.creator}
           </p>
         ))}
       <div className="candidate-number">

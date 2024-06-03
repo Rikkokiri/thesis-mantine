@@ -1,11 +1,9 @@
+import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
 import { PromiseList } from "./PromiseList";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
-import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
 import { BackgroundDetailsGrid } from "./BackgroundDetailsGrid";
 
-export const CandidateInfoContent = (
-  props: ReturnType<typeof useCandidateInfo>,
-) => {
+export const CandidateInfoContent = (props: ReturnType<typeof useCandidateInfo>) => {
   const { t, promises, candidate } = props;
 
   return (

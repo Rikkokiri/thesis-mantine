@@ -13,10 +13,7 @@ export function useCandidatesMatch() {
   const userAnswers = useAnswerStore((state) => state.answers);
   const displayMatches = someAnswered();
 
-  const { topFourMatches } = useCalculateTopMatches(
-    userAnswers,
-    candidatesAnswers,
-  );
+  const { topFourMatches } = useCalculateTopMatches(userAnswers, candidatesAnswers);
 
   const topFourCandidates: MatchWithDetails[] = useMemo(() => {
     return topFourMatches.map((match, index) => {

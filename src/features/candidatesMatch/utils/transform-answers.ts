@@ -5,9 +5,7 @@ import { AnswerValuesRecord } from "../types";
 /**
  * Transform user answers to a simplified record of answers
  */
-export const userAnswersToAnswerRecord = (
-  answers: AnswerRecord,
-): AnswerValuesRecord => {
+export const userAnswersToAnswerRecord = (answers: AnswerRecord): AnswerValuesRecord => {
   const result: AnswerValuesRecord = {};
   Object.values(answers).forEach((answer: Answer) => {
     result[answer.questionId] = answer.answer ?? undefined;
@@ -19,7 +17,7 @@ export const userAnswersToAnswerRecord = (
  * Transform candidate answers to a simplified record of answers
  */
 export const candidatesAnswersToAnswerRecord = (
-  answers: SingleCandidateAnswers,
+  answers: SingleCandidateAnswers
 ): AnswerValuesRecord => {
   const result: AnswerValuesRecord = {};
   Object.keys(answers).forEach((id) => {

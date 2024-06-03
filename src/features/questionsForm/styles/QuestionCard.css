@@ -33,6 +33,11 @@
   margin-bottom: 18px;
 }
 
+.answer__buttons {
+  gap: 24px; /* TODO: Use variable */
+  margin-top: 40px;
+}
+
 .answer__radio {
-  padding-top: 8px;
+  padding-top: 8px; /* TODO: Use variable */
 }

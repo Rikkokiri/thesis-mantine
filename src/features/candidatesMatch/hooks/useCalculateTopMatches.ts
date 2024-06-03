@@ -20,12 +20,9 @@ type CandidateMatch = {
 
 export function useCalculateTopMatches(
   userAnswers: AnswerRecord,
-  candidateAnswers: CandidatesResponses,
+  candidateAnswers: CandidatesResponses
 ) {
-  const userAnswerRecord = useMemo(
-    () => userAnswersToAnswerRecord(userAnswers),
-    [userAnswers],
-  );
+  const userAnswerRecord = useMemo(() => userAnswersToAnswerRecord(userAnswers), [userAnswers]);
 
   const candidates: CandidateWithAnswers[] = useMemo(() => {
     return Object.keys(candidateAnswers).map((candidateId) => {

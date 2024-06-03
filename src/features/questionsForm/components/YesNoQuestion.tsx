@@ -1,8 +1,5 @@
 import { TFunction } from "i18next";
-import { RiThumbUpLine } from "react-icons/ri";
-import { RiThumbUpFill } from "react-icons/ri";
-import { RiThumbDownLine } from "react-icons/ri";
-import { RiThumbDownFill } from "react-icons/ri";
+import { RiThumbUpLine, RiThumbUpFill, RiThumbDownLine, RiThumbDownFill } from "react-icons/ri";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { YesNoAnswer } from "@data/types";
 
@@ -17,7 +14,7 @@ export const YesNoQuestion = (props: IYesNoQuestionProps) => {
   const { answer, answerQuestion, questionId, t } = props;
 
   return (
-    <div className="row-centered gap-24 mt-40">
+    <div className="row-centered answer__buttons">
       <ToggleButton
         isToggled={answer === YesNoAnswer.YES}
         onClick={() => answerQuestion(questionId, YesNoAnswer.YES)}

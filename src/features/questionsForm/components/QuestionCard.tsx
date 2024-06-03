@@ -19,14 +19,8 @@ interface ICardProps {
 }
 
 export const QuestionCard = (props: ICardProps) => {
-  const {
-    answer,
-    question,
-    category,
-    questionsCount,
-    answerQuestion,
-    toggleQuestionHiding,
-  } = props;
+  const { answer, question, category, questionsCount, answerQuestion, toggleQuestionHiding } =
+    props;
   const { t } = useTranslation();
   const questionId = question.id;
   const questionNumber = category.position + question.position + 1;
@@ -39,9 +33,7 @@ export const QuestionCard = (props: ICardProps) => {
       </div>
       <h2 className="question">{question.question.en}</h2>
       <div className="row-centered info-buttons">
-        {question.additionalInfo && (
-          <AdditionalInfo t={t} info={question.additionalInfo} />
-        )}
+        {question.additionalInfo && <AdditionalInfo t={t} info={question.additionalInfo} />}
         <ToggleButton
           onClick={() => toggleQuestionHiding(question.id)}
           isToggled={!!answer?.hideQuestion}

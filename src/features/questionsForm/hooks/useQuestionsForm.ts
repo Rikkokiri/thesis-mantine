@@ -23,10 +23,10 @@ export const useQuestionsForm = (): IQuestionsForm => {
   const answersInStore = useAnswerStore((state) => state.answers);
 
   return {
-    questionsTotalCount: questionsTotalCount,
+    questionsTotalCount,
     answerQuestion,
     categoriesAndQuestions,
-    toggleQuestionHiding: toggleQuestionHiding,
+    toggleQuestionHiding,
     answers: answersInStore,
   };
 };

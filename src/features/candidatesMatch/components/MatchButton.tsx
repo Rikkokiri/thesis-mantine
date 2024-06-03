@@ -15,15 +15,15 @@ export const MatchButton = (props: IMatchButtonProps) => {
   return (
     <>
       <button
+        type="button"
         aria-label={ariaLabel}
         className="match-result"
         onClick={() => {
-          console.log("Clicked the button");
           setIsModalOpen(true);
         }}
       >
         <div className="match-result__img-wrapper">
-          <img src={logoSrc} aria-hidden className="match-result__img" />
+          <img src={logoSrc} aria-hidden className="match-result__img" alt="" />
           <p className="match-result__score">{`${percentage}%`}</p>
         </div>
       </button>

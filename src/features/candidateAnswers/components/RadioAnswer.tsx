@@ -1,5 +1,5 @@
-import { DisplayRadioRange } from "./DisplayRadioRange";
 import { TFunction } from "i18next";
+import { DisplayRadioRange } from "./DisplayRadioRange";
 
 interface IRadioAnswerProps {
   t: TFunction;
@@ -27,24 +27,24 @@ const buildOptions = (
   t: TFunction,
   candidateAnswer: number | null,
   userAnswer: number | null,
-  candidateImgSrc: string,
+  candidateImgSrc: string
 ) => {
   const options = [
     {
       value: 1,
       label: t("answerScale.strongDisagree"),
-      optionClassName: `disagree`,
+      optionClassName: "disagree",
     },
     {
       value: 2,
       label: t("answerScale.disagree"),
-      optionClassName: `disagree`,
+      optionClassName: "disagree",
     },
-    { value: 4, label: t("answerScale.agree"), optionClassName: `agree` },
+    { value: 4, label: t("answerScale.agree"), optionClassName: "agree" },
     {
       value: 5,
       label: t("answerScale.strongAgree"),
-      optionClassName: `agree`,
+      optionClassName: "agree",
     },
   ];
 
