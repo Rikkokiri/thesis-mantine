@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
-// import { Router } from "./Router";
 import { RouterProvider } from "react-router-dom";
 import { theme } from "./theme";
 import { router } from "./routes";
