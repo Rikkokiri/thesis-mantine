@@ -45,9 +45,5 @@ export const ButtonLink = ({
 
 const Icon = (props: { icon?: JSX.Element; iconSize: ButtonIconSize }) => {
   if (!props.icon) return null;
-  return (
-    <span className={`icon icon-before icon-${props.iconSize}`}>
-      {props.icon}
-    </span>
-  );
+  return <span className={`icon icon-before icon-${props.iconSize}`}>{props.icon}</span>;
 };

@@ -1,10 +1,7 @@
 import { expect, test, describe } from "vitest";
-import {
-  candidatesAnswersToAnswerRecord,
-  userAnswersToAnswerRecord,
-} from "./transform-answers";
 import { AnswerRecord } from "@stores/answerStore";
 import { SingleCandidateAnswers } from "@data/candidateAnswers";
+import { candidatesAnswersToAnswerRecord, userAnswersToAnswerRecord } from "./transform-answers";
 
 describe("candidatesAnswersToAnswerRecord", () => {
   const answers: SingleCandidateAnswers = {

@@ -1,6 +1,5 @@
 import { TFunction } from "i18next";
-import { RiThumbUpLine } from "react-icons/ri";
-import { RiThumbDownLine } from "react-icons/ri";
+import { RiThumbUpLine, RiThumbDownLine } from "react-icons/ri";
 import "../styles/YesOrNoAnswer.css";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { YesNoAnswer, QuestionType } from "@data/types";
@@ -46,17 +45,13 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
               isToggled={isToggled}
               toggledIcon={
                 <CandidateIndicator
-                  alt={""} // TODO: Pass a meaningful alt text
+                  alt="" // TODO: Pass a meaningful alt text
                   imgSrc={candidateImgSrc}
                 />
               }
               iconSize={isToggled ? 24 : undefined}
               untoggledIcon={
-                option.value === YesNoAnswer.YES ? (
-                  <RiThumbUpLine />
-                ) : (
-                  <RiThumbDownLine />
-                )
+                option.value === YesNoAnswer.YES ? <RiThumbUpLine /> : <RiThumbDownLine />
               }
             >
               {option.label}

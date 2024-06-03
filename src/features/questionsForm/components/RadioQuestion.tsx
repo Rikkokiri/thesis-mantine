@@ -33,7 +33,7 @@ export const RadioQuestion = (props: IRadioQuestionProps) => {
           },
         ]}
         value={value ?? undefined}
-        onChange={(value) => answerQuestion(questionId, value)}
+        onChange={(val) => answerQuestion(questionId, val)}
       />
     </div>
   );

@@ -12,7 +12,7 @@ export const resources = {
 } as const;
 
 i18n.use(initReactI18next).init({
-  defaultNS: defaultNS,
+  defaultNS,
   ns: [defaultNS],
   resources,
   lng: defaultLanguage,

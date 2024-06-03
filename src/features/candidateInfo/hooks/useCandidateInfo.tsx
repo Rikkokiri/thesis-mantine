@@ -7,10 +7,7 @@ export const useCandidateInfo = (candidateId: string) => {
   const { t } = useTranslation();
   const candidate = getCandidateById(candidateId);
 
-  const promises: string[] =
-    candidate?.promises?.map((promise) => {
-      return localize(promise);
-    }) ?? [];
+  const promises: string[] = candidate?.promises?.map((promise) => localize(promise)) ?? [];
 
   return {
     t,

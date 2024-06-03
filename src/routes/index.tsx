@@ -1,8 +1,8 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
+import { CandidatePage } from "src/pages/CandidatePage";
 import App from "../App";
 import { FrontPage } from "../pages/FrontPage";
 import { QuestionsPage } from "../pages/QuestionsPage";
-import { CandidatePage } from "src/pages/CandidatePage";
 
 export enum Route {
   ROOT = "/",

@@ -20,36 +20,38 @@ type CandidateMatch = {
 
 export function useCalculateTopMatches(
   userAnswers: AnswerRecord,
-  candidateAnswers: CandidatesResponses,
+  candidateAnswers: CandidatesResponses
 ) {
-  const userAnswerRecord = useMemo(
-    () => userAnswersToAnswerRecord(userAnswers),
-    [userAnswers],
+  const userAnswerRecord = useMemo(() => userAnswersToAnswerRecord(userAnswers), [userAnswers]);
+
+  const candidates: CandidateWithAnswers[] = useMemo(
+    () =>
+      Object.keys(candidateAnswers).map((candidateId) => {
+        const candidate = candidateAnswers[candidateId];
+        return {
+          answers: candidatesAnswersToAnswerRecord(candidate),
+          candidateId,
+        };
+      }),
+    [candidateAnswers]
   );
 
-  const candidates: CandidateWithAnswers[] = useMemo(() => {
-    return Object.keys(candidateAnswers).map((candidateId) => {
-      const candidate = candidateAnswers[candidateId];
-      return {
-        answers: candidatesAnswersToAnswerRecord(candidate),
-        candidateId,
-      };
-    });
-  }, [candidateAnswers]);
+  const candidatesScores: CandidateMatch[] = useMemo(
+    () =>
+      candidates.map((candidate) => {
+        const score = matchPercentage(userAnswerRecord, candidate.answers);
+        return {
+          score,
+          candidateId: candidate.candidateId,
+        };
+      }),
+    [userAnswerRecord, candidates]
+  );
 
-  const candidatesScores: CandidateMatch[] = useMemo(() => {
-    return candidates.map((candidate) => {
-      const score = matchPercentage(userAnswerRecord, candidate.answers);
-      return {
-        score,
-        candidateId: candidate.candidateId,
-      };
-    });
-  }, [userAnswerRecord, candidates]);
-
-  const topFourMatches = useMemo(() => {
-    return candidatesScores.sort((a, b) => b.score - a.score).slice(0, 4);
-  }, [candidatesScores]);
+  const topFourMatches = useMemo(
+    () => candidatesScores.sort((a, b) => b.score - a.score).slice(0, 4),
+    [candidatesScores]
+  );
 
   return {
     topFourMatches,

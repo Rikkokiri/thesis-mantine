@@ -1,15 +1,12 @@
 import "../styles/CandidatesMatchBar.css";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { useState } from "react";
-import { FiEyeOff } from "react-icons/fi";
-import { FiEye } from "react-icons/fi";
+import { FiEyeOff, FiEye } from "react-icons/fi";
 import { MatchButton } from "./MatchButton";
 import { useCandidatesMatch } from "../hooks/useCandidatesMatch";
 import { MatchWithDetails } from "../types";
 
-export const CandidatesMatchBar = (
-  props: ReturnType<typeof useCandidatesMatch>,
-) => {
+export const CandidatesMatchBar = (props: ReturnType<typeof useCandidatesMatch>) => {
   const { topFourCandidates, topCount, displayMatches } = props;
   const [resultsHidden, setResultsHidden] = useState<boolean>(false);
 
@@ -22,9 +19,7 @@ export const CandidatesMatchBar = (
       <div className="match-bar__content">
         <div className="match-bar__matches">
           {resultsHidden || !topFourCandidates
-            ? [...Array(topCount).keys()].map((index) => (
-                <MatchPlaceholder key={index} />
-              ))
+            ? [...Array(topCount).keys()].map((index) => <MatchPlaceholder key={index} />)
             : topFourCandidates.map((candidate: MatchWithDetails) => (
                 <MatchButton candidate={candidate} key={candidate.id} />
               ))}
@@ -45,11 +40,9 @@ export const CandidatesMatchBar = (
   );
 };
 
-const MatchPlaceholder = () => {
-  return (
-    <div className="column-centered placeholder-match">
-      <div className="placeholder-candidate"></div>
-      <div className="placeholder-score"></div>
-    </div>
-  );
-};
+const MatchPlaceholder = () => (
+  <div className="column-centered placeholder-match">
+    <div className="placeholder-candidate"></div>
+    <div className="placeholder-score"></div>
+  </div>
+);

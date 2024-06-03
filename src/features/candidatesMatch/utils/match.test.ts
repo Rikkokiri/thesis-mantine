@@ -98,21 +98,16 @@ describe("matchPercentage", () => {
       28: 4,
     };
 
-    const userCases: AnswerValuesRecord[] = ANSWER_VALUES.map((answer) => {
-      return {
-        ...shared,
-        25: answer, // Candidate did not answer and user answered => 0.75 (regardless of user answer)
-      };
-    });
+    const userCases: AnswerValuesRecord[] = ANSWER_VALUES.map((answer) => ({
+      ...shared,
+      25: answer, // Candidate did not answer and user answered => 0.75 (regardless of user answer)
+    }));
 
     const candidate = shared;
 
-    test.each(userCases)(
-      "user answer %o, candidate answer undefined",
-      (userAnswers) => {
-        expect(matchPercentage(userAnswers, candidate)).toBe(75);
-      },
-    );
+    test.each(userCases)("user answer %o, candidate answer undefined", (userAnswers) => {
+      expect(matchPercentage(userAnswers, candidate)).toBe(75);
+    });
   });
 
   // describe("user not answering questions does not affect match score", () => {});

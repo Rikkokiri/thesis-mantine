@@ -29,28 +29,20 @@ export const Button = ({
   iconBefore,
   iconAfter,
   iconSize = 20,
-}: IButtonProps) => {
-  return (
-    <button
-      disabled={isDisabled}
-      className={`button button--${variant} ${className} button--${size}`}
-      onClick={onClick}
-    >
-      <ButtonIcon icon={iconBefore} iconSize={iconSize} />
-      {children && <span className="button__content">{children}</span>}
-      <ButtonIcon icon={iconAfter} iconSize={iconSize} />
-    </button>
-  );
-};
+}: IButtonProps) => (
+  <button
+    type="button"
+    disabled={isDisabled}
+    className={`button button--${variant} ${className} button--${size}`}
+    onClick={onClick}
+  >
+    <ButtonIcon icon={iconBefore} iconSize={iconSize} />
+    {children && <span className="button__content">{children}</span>}
+    <ButtonIcon icon={iconAfter} iconSize={iconSize} />
+  </button>
+);
 
-const ButtonIcon = (props: {
-  icon?: JSX.Element;
-  iconSize: ButtonIconSize;
-}) => {
+const ButtonIcon = (props: { icon?: JSX.Element; iconSize: ButtonIconSize }) => {
   if (!props.icon) return null;
-  return (
-    <span className={`icon icon-before icon-${props.iconSize}`}>
-      {props.icon}
-    </span>
-  );
+  return <span className={`icon icon-before icon-${props.iconSize}`}>{props.icon}</span>;
 };

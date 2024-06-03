@@ -44,7 +44,6 @@ export const Modal = ({ isOpen, closeModal, children }: IModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
-      console.log("show modal");
       ref.current?.showModal();
     } else {
       handleClosing();
@@ -61,7 +60,7 @@ export const Modal = ({ isOpen, closeModal, children }: IModalProps) => {
         variant="ghost"
         size="icon-only"
         aria-label={t("closeModal")}
-      ></Button>
+      />
       <div className="modal__content">{children}</div>
     </dialog>
   );

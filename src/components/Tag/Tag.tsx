@@ -5,6 +5,6 @@ interface ITagProps {
   variant?: "default" | "negative";
 }
 
-export const Tag = ({ children, variant = "default" }: ITagProps) => {
-  return <div className={`tag tag--${variant}`}>{children}</div>;
-};
+export const Tag = ({ children, variant = "default" }: ITagProps) => (
+  <div className={`tag tag--${variant}`}>{children}</div>
+);

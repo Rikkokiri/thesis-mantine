@@ -1,8 +1,4 @@
-import {
-  InfoGrid,
-  InfoGridItem,
-  InfoGridRow,
-} from "@components/InfoGrid/InfoGrid";
+import { InfoGrid, InfoGridItem, InfoGridRow } from "@components/InfoGrid/InfoGrid";
 import { Candidate } from "@data/candidates";
 import { useLocalizedString } from "@hooks/useLocalizedString";
 import { TFunction } from "i18next";
@@ -19,14 +15,10 @@ export const BackgroundDetailsGrid = (props: IBackgroundDetailsProps) => {
   return (
     <InfoGrid>
       <InfoGridRow>
-        <InfoGridItem className="body-bold">
-          {t("candidate.website")}
-        </InfoGridItem>
+        <InfoGridItem className="body-bold">{t("candidate.website")}</InfoGridItem>
         <InfoGridItem>
           <a href={candidate.website?.url} target="_blank" rel="noreferrer">
-            {candidate.website?.text
-              ? localize(candidate.website?.text)
-              : candidate.website?.url}
+            {candidate.website?.text ? localize(candidate.website?.text) : candidate.website?.url}
           </a>
         </InfoGridItem>
       </InfoGridRow>

@@ -1,8 +1,5 @@
 import { TFunction } from "i18next";
-import { RiThumbUpLine } from "react-icons/ri";
-import { RiThumbUpFill } from "react-icons/ri";
-import { RiThumbDownLine } from "react-icons/ri";
-import { RiThumbDownFill } from "react-icons/ri";
+import { RiThumbUpLine, RiThumbUpFill, RiThumbDownLine, RiThumbDownFill } from "react-icons/ri";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { YesNoAnswer } from "@data/types";
 

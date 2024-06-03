@@ -23,18 +23,16 @@ export const ToggleButton = ({
   iconSize,
   className,
   toggledClassName = "toggled",
-}: IToggleButtonProps) => {
-  return (
-    <Button
-      onClick={onClick}
-      iconBefore={isToggled ? toggledIcon : untoggledIcon}
-      className={`toggle-button ${isToggled ? toggledClassName : ""} ${className || ""}`}
-      variant={variant}
-      size={size}
-      isDisabled={isDisabled}
-      iconSize={iconSize}
-    >
-      {children}
-    </Button>
-  );
-};
+}: IToggleButtonProps) => (
+  <Button
+    onClick={onClick}
+    iconBefore={isToggled ? toggledIcon : untoggledIcon}
+    className={`toggle-button ${isToggled ? toggledClassName : ""} ${className || ""}`}
+    variant={variant}
+    size={size}
+    isDisabled={isDisabled}
+    iconSize={iconSize}
+  >
+    {children}
+  </Button>
+);

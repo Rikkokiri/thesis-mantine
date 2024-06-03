@@ -1,11 +1,10 @@
 import "../styles/AnswerList.css";
 import { useState } from "react";
-import { useCandidateAnswers } from "../hooks/useCandidateAnswers";
-import { AnswerCard } from "./AnswerCard";
 import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
-import { FiMinus } from "react-icons/fi";
-import { FiPlus } from "react-icons/fi";
+import { FiMinus, FiPlus } from "react-icons/fi";
+import { AnswerCard } from "./AnswerCard";
+import { useCandidateAnswers } from "../hooks/useCandidateAnswers";
 
 export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
   const { t, questions, candidateAnswers, candidateImgSrc } = props;
@@ -20,9 +19,7 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
             <AnswerCard
               key={question.id}
               question={question}
-              candidateAnswer={
-                candidateAnswers[question.id] ?? { answer: null }
-              }
+              candidateAnswer={candidateAnswers[question.id] ?? { answer: null }}
               questionsCount={questions.length}
               candidateImgSrc={candidateImgSrc}
             />

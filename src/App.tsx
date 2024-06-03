@@ -1,8 +1,8 @@
 import { Link, Outlet } from "react-router-dom";
-import { Toolbar } from "./components/Toolbar/Toolbar";
 import { useDetectTheme } from "@hooks/useDetectTheme";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Toolbar } from "./components/Toolbar/Toolbar";
 
 function App() {
   const { prefersDarkMode, setActiveTheme } = useDetectTheme();

@@ -25,8 +25,7 @@
   /* Modals */
   --modal-backdrop: var(--black-70);
   --modal-bg: var(--gray-90);
-  --modal-box-shadow: rgba(0, 0, 0, 16%) 0 3px 6px 0,
-    rgba(0, 0, 0, 23%) 0 3px 6px 0;
+  --modal-box-shadow: rgba(0, 0, 0, 16%) 0 3px 6px 0, rgba(0, 0, 0, 23%) 0 3px 6px 0;
 
   /* Agree and disagree bg colors */
   --agree: var(--green-bright);

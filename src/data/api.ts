@@ -6,9 +6,7 @@ import { CategoryWithQuestions, Question } from "./types";
 const sortByPosition = (a: { position: number }, b: { position: number }) =>
   a.position - b.position;
 
-export const getQuestions = () => {
-  return QUESTIONS;
-};
+export const getQuestions = () => QUESTIONS;
 
 export const getAllQuestionsInOrder = (): Question[] => {
   const categoriesWithQuestion = getCategoriesWithQuestions();
@@ -30,47 +28,30 @@ export const getOrderedQuestionsByCategoryId = (categoryId: number) => {
   return questions.sort(sortByPosition);
 };
 
-export const getQuestionById = (id: number) => {
-  return QUESTIONS.find((q) => q.id === id);
-};
+export const getQuestionById = (id: number) => QUESTIONS.find((q) => q.id === id);
 
-export const getOrderedCategories = () => {
-  return CATEGORIES.sort(sortByPosition);
-};
+export const getOrderedCategories = () => CATEGORIES.sort(sortByPosition);
 
-export const getCategoryById = (id: number) => {
-  return CATEGORIES.find((c) => c.id === id);
-};
+export const getCategoryById = (id: number) => CATEGORIES.find((c) => c.id === id);
 
-export const getCategoriesWithQuestions = (): CategoryWithQuestions[] => {
-  return CATEGORIES.map((category) => ({
+export const getCategoriesWithQuestions = (): CategoryWithQuestions[] =>
+  CATEGORIES.map((category) => ({
     ...category,
     questions: getOrderedQuestionsByCategoryId(category.id),
   })).sort(sortByPosition);
-};
 
-export const getQuestionsTotalCount = () => {
-  return QUESTIONS.length;
-};
+export const getQuestionsTotalCount = () => QUESTIONS.length;
 
 /**
  * Candidate data
  */
 
-export const getAllCandidatesAnswers = () => {
-  return CANDIDATE_ANSWERS;
-};
+export const getAllCandidatesAnswers = () => CANDIDATE_ANSWERS;
 
-export const getCandidatesAnswersById = (
-  candidateId: string,
-): SingleCandidateAnswers => {
-  return CANDIDATE_ANSWERS[candidateId];
-};
+export const getCandidatesAnswersById = (candidateId: string): SingleCandidateAnswers =>
+  CANDIDATE_ANSWERS[candidateId];
 
-export const getAllCandidates = () => {
-  return CANDIDATES;
-};
+export const getAllCandidates = () => CANDIDATES;
 
-export const getCandidateById = (id: string): Candidate | undefined => {
-  return CANDIDATES.find((c) => c.id === id);
-};
+export const getCandidateById = (id: string): Candidate | undefined =>
+  CANDIDATES.find((c) => c.id === id);
