@@ -9,13 +9,6 @@
   border-bottom: var(--section-card-header-border);
 }
 
-.section-card__title {
-  margin: 0;
-  font-size: 20px;
-  line-height: 140%;
-  font-weight: 900;
-}
-
 .section-card__content {
   padding: 24px;
 }

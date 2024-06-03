@@ -1,4 +1,5 @@
 import "../styles/CandidateHeader.css";
+import { Text, Title } from "@mantine/core";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
 
 export const CandidateIntroHeader = (props: ReturnType<typeof useCandidateInfo>) => {
@@ -11,14 +12,18 @@ export const CandidateIntroHeader = (props: ReturnType<typeof useCandidateInfo>)
   return (
     <div className="candidate-header">
       <div>
-        <p className="subtitle m-0">{t("electionName")}</p>
-        <h1 className="heading-1-large m-0">{candidate.name}</h1>
+        <Text size="sm" fw="700" className="m-0">
+          {t("electionName")}
+        </Text>
+        <Title order={1} size="h1">
+          {candidate.name}
+        </Title>
       </div>
       {candidate.organization ||
         (candidate.creator && (
-          <p className="candidate-header__organization m-0">
+          <Text size="xs" fw="700" className="candidate-header__organization m-0">
             {t("candidate.createdBy")} {candidate.organization || candidate.creator}
-          </p>
+          </Text>
         ))}
       <div className="candidate-number">
         {t("candidate.number")} {candidate.number}

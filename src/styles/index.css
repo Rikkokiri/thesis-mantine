@@ -1,7 +1,7 @@
 @import "./colors.css";
 @import "./variables.css";
 @import "./reset.css";
-@import "./typography.css";
+@import "./typography.css"; /* TODO Mantine: Remove ones heading colors fixed */
 @import "./layout.css";
 @import "./utils.css";
 @import "./themes/light-theme.css";

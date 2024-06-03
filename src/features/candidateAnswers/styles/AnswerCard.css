@@ -13,10 +13,7 @@
 }
 
 .question {
-  font-weight: 900;
-  font-size: 24px;
-  max-width: 343px;
-  text-align: center;
+  max-width: 343px; /* TODO: Use variable */
   margin: 20px 0;
 }
 

@@ -1,39 +1,60 @@
 import "../styles/MatchButton.css";
-import { useState } from "react";
-import { CandidateModal } from "./CandidateModal";
+import "../styles/CandidateModal.css";
+import { Modal, Text } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { useTranslation } from "react-i18next";
+import { ButtonLink } from "@components/ButtonLink/ButtonLink";
 import { MatchWithDetails } from "../types";
 
 interface IMatchButtonProps {
   candidate: MatchWithDetails;
 }
 
-export const MatchButton = (props: IMatchButtonProps) => {
-  const { name, rank, percentage, logoSrc } = props.candidate;
+export const MatchButton = ({ candidate }: IMatchButtonProps) => {
+  const { name, rank, percentage, logoSrc, brandColor } = candidate;
   const ariaLabel = `top ${rank} - ${name} - ${percentage}% match`;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [opened, { open, close }] = useDisclosure(false);
+  const { t } = useTranslation();
 
   return (
     <>
-      <button
-        type="button"
-        aria-label={ariaLabel}
-        className="match-result"
-        onClick={() => {
-          setIsModalOpen(true);
-        }}
-      >
+      <button type="button" aria-label={ariaLabel} className="match-result" onClick={open}>
         <div className="match-result__img-wrapper">
           <img src={logoSrc} aria-hidden className="match-result__img" alt="" />
-          <p className="match-result__score">{`${percentage}%`}</p>
+          <Text
+            size="sm"
+            fw="700"
+            ta="center"
+            // TODO: Remove once color fixed - className="match-result__score"
+          >
+            {`${percentage}%`}
+          </Text>
         </div>
       </button>
-      <CandidateModal
-        isOpen={isModalOpen}
-        closeModal={() => {
-          setIsModalOpen(false);
-        }}
-        {...props}
-      />
+      <Modal opened={opened} onClose={close}>
+        <div className="candidate-modal__body">
+          <div className="candidate-modal__img-wrapper">
+            <img src={logoSrc} aria-hidden className="candidate-modal__img" alt="" />
+            <div
+              className="candidate-modal__score-visual"
+              aria-hidden
+              style={{ width: `${percentage}%`, backgroundColor: brandColor }}
+            />
+            <span className="candidate-modal__score">{`${percentage}%`}</span>
+          </div>
+          <div className="candidate-modal__details-section">
+            <h3 className="candidate-modal__name">{name}</h3>
+            <span className="candidate-modal__number body-small">
+              {t("candidate.number")} {candidate.number}
+            </span>
+          </div>
+        </div>
+        <div className="candidate-modal__actions">
+          <ButtonLink to={`/candidates/${candidate.id}`} variant="outline" size="small">
+            {t("candidate.getToKnow")}
+          </ButtonLink>
+        </div>
+      </Modal>
     </>
   );
 };

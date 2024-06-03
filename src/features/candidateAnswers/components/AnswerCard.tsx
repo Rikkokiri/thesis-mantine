@@ -1,4 +1,5 @@
 import "../styles/AnswerCard.css";
+import { Text } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { Question } from "@data/types";
 import { CandidateAnswer } from "@data/candidateAnswers";
@@ -31,7 +32,9 @@ export const AnswerCard = (props: ICardProps) => {
       <div className="row-centered card__header">
         <Tag variant="negative">{`${question.position}/${questionsCount}`}</Tag>
       </div>
-      <h2 className="question">{question.question.en}</h2>
+      <Text size="xxl" fw="900" ta="center" className="question">
+        {question.question.en}
+      </Text>
       {question.questionType === "yes-no" ? (
         <YesOrNoAnswer
           questionId={questionId}

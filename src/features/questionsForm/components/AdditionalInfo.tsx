@@ -5,6 +5,7 @@ import { TFunction } from "i18next";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { useLocalizedString } from "@hooks/useLocalizedString";
 import { useState } from "react";
+import { Text, Title } from "@mantine/core";
 
 interface IAdditionalInfoProps {
   t: TFunction;
@@ -35,8 +36,10 @@ export const AdditionalInfo = (props: IAdditionalInfoProps) => {
           setIsModalOpen(false);
         }}
       >
-        <h3 className="heading-3 pb-8">{t("question.whatAbout")}</h3>
-        <p className="body-small">{localize(info)}</p>
+        <Title order={2} size="h4" className="pb-8">
+          {t("question.whatAbout")}
+        </Title>
+        <Text size="sm">{localize(info)}</Text>
       </Modal>
     </>
   );

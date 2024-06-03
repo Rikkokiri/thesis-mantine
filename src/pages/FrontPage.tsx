@@ -1,5 +1,6 @@
 import { Button } from "@components/Button/Button";
 import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
+import { Title } from "@mantine/core";
 import { useAnswerStore } from "@stores/answerStore";
 import { useTranslation } from "react-i18next";
 import { FiChevronRight } from "react-icons/fi";
@@ -19,7 +20,9 @@ export const FrontPage = () => {
   return (
     <>
       <div className="page-header">
-        <h1 className="heading-1 mb-16">{t("frontPage.title")}</h1>
+        <Title order={1} size="h2" className="mb-16">
+          {t("frontPage.title")}
+        </Title>
         <Button iconAfter={<FiChevronRight />} onClick={startCompass}>
           {t("frontPage.start")}
         </Button>

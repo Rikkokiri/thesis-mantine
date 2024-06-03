@@ -1,4 +1,5 @@
 import "../styles/QuestionCard.css";
+import { Text } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { ToggleButton } from "../../../components/ToggleButton/ToggleButton";
 import { FiEyeOff } from "react-icons/fi";
@@ -29,9 +30,13 @@ export const QuestionCard = (props: ICardProps) => {
     <section className="card">
       <div className="row-centered card__header">
         <Tag>{`${questionNumber}/${questionsCount}`}</Tag>
-        <p className="category">{category.name.en}</p>
+        <Text size="xs" fw="700">
+          {category.name.en}
+        </Text>
       </div>
-      <h2 className="question">{question.question.en}</h2>
+      <Text size="xxl" fw="900" ta="center" className="question">
+        {question.question.en}
+      </Text>
       <div className="row-centered info-buttons">
         {question.additionalInfo && <AdditionalInfo t={t} info={question.additionalInfo} />}
         <ToggleButton

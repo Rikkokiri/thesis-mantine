@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
+import { Text, Title } from "@mantine/core";
 import "./QuestionsPage.css";
 import { FiArrowDown } from "react-icons/fi";
 import { CandidatesMatch } from "src/features/candidatesMatch";
@@ -20,9 +21,16 @@ export const QuestionsPage = () => {
     <>
       {inView && <CandidatesMatch />}
       <section className="question-page__header">
-        <p className="subtitle m-0">{t("electionName")}</p>
-        <h1 className="heading-1 question-page__title">{t("questionPage.findYourCandidate")}</h1>
-        <p className="page-intro">{t("questionPage.description")}</p>
+        {/* TODO: color: var(--heading-primary); */}
+        <Text size="sm" fw="700" className="m-0">
+          {t("electionName")}
+        </Text>
+        <Title order={1} size="h2">
+          {t("questionPage.findYourCandidate")}
+        </Title>
+        <Text size="md" className="page-intro">
+          {t("questionPage.description")}
+        </Text>
 
         <Button
           iconBefore={<FiArrowDown />}
