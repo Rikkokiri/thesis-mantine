@@ -9,6 +9,7 @@ import { Answer } from "@stores/answerStore";
 import { RadioQuestion } from "./RadioQuestion";
 import { YesNoQuestion } from "./YesNoQuestion";
 import { AdditionalInfo } from "./AdditionalInfo";
+import { RowCentered } from "@/layout";
 
 interface ICardProps {
   category: Category;
@@ -20,25 +21,41 @@ interface ICardProps {
 }
 
 export const QuestionCard = (props: ICardProps) => {
-  const { answer, question, category, questionsCount, answerQuestion, toggleQuestionHiding } =
-    props;
+  const {
+    answer,
+    question,
+    category,
+    questionsCount,
+    answerQuestion,
+    toggleQuestionHiding,
+  } = props;
   const { t } = useTranslation();
   const questionId = question.id;
   const questionNumber = category.position + question.position + 1;
 
   return (
     <section className="card">
-      <div className="row-centered card__header">
+      <RowCentered gap="lg">
         <Tag>{`${questionNumber}/${questionsCount}`}</Tag>
         <Text size="xs" fw="700">
           {category.name.en}
         </Text>
-      </div>
-      <Text size="xxl" fw="900" ta="center" className="question">
+      </RowCentered>
+      <Text
+        size="xxl"
+        fw="900"
+        ta="center"
+        className="question"
+        maw="343px"
+        my="1.25rem"
+        mx={0}
+      >
         {question.question.en}
       </Text>
-      <div className="row-centered info-buttons">
-        {question.additionalInfo && <AdditionalInfo t={t} info={question.additionalInfo} />}
+      <RowCentered mt="6px" mb="1.125rem">
+        {question.additionalInfo && (
+          <AdditionalInfo t={t} info={question.additionalInfo} />
+        )}
         <ToggleButton
           onClick={() => toggleQuestionHiding(question.id)}
           isToggled={!!answer?.hideQuestion}
@@ -49,7 +66,7 @@ export const QuestionCard = (props: ICardProps) => {
         >
           {t("question.hide")}
         </ToggleButton>
-      </div>
+      </RowCentered>
       {question.questionType === "yes-no" ? (
         <YesNoQuestion
           answerQuestion={answerQuestion}

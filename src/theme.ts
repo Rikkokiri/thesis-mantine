@@ -7,6 +7,15 @@ export const theme = createTheme({
   scale: 1,
   /** Put your mantine theme override here */
   fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+  spacing: {
+    xs: "0.25rem",
+    sm: "0.5rem",
+    smd: "0.75rem",
+    md: "1rem",
+    lg: "1.5rem",
+    xl: "1.75rem",
+    xxl: "2rem",
+  },
   // primaryColor: "#131415",
   colors: {
     "bright-pink": [
@@ -70,6 +79,7 @@ export const theme = createTheme({
       },
     },
   },
-
-  // components: {},
+  components: {
+    Divider: {},
+  },
 });

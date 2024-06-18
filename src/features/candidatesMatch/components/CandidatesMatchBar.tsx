@@ -6,7 +6,9 @@ import { MatchButton } from "./MatchButton";
 import { useCandidatesMatch } from "../hooks/useCandidatesMatch";
 import { MatchWithDetails } from "../types";
 
-export const CandidatesMatchBar = (props: ReturnType<typeof useCandidatesMatch>) => {
+export const CandidatesMatchBar = (
+  props: ReturnType<typeof useCandidatesMatch>,
+) => {
   const { topFourCandidates, topCount, displayMatches } = props;
   const [resultsHidden, setResultsHidden] = useState<boolean>(false);
 
@@ -19,7 +21,9 @@ export const CandidatesMatchBar = (props: ReturnType<typeof useCandidatesMatch>)
       <div className="match-bar__content">
         <div className="match-bar__matches">
           {resultsHidden || !topFourCandidates
-            ? [...Array(topCount).keys()].map((index) => <MatchPlaceholder key={index} />)
+            ? [...Array(topCount).keys()].map((index) => (
+                <MatchPlaceholder key={index} />
+              ))
             : topFourCandidates.map((candidate: MatchWithDetails) => (
                 <MatchButton candidate={candidate} key={candidate.id} />
               ))}
@@ -40,6 +44,15 @@ export const CandidatesMatchBar = (props: ReturnType<typeof useCandidatesMatch>)
   );
 };
 
+/*
+.column-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+*/
 const MatchPlaceholder = () => (
   <div className="column-centered placeholder-match">
     <div className="placeholder-candidate"></div>

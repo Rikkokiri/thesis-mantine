@@ -5,6 +5,8 @@ import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { AnswerCard } from "./AnswerCard";
 import { useCandidateAnswers } from "../hooks/useCandidateAnswers";
+import { RowCentered } from "@/layout";
+import { Divider } from "@mantine/core";
 
 export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
   const { t, questions, candidateAnswers, candidateImgSrc } = props;
@@ -19,14 +21,16 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
             <AnswerCard
               key={question.id}
               question={question}
-              candidateAnswer={candidateAnswers[question.id] ?? { answer: null }}
+              candidateAnswer={
+                candidateAnswers[question.id] ?? { answer: null }
+              }
               questionsCount={questions.length}
               candidateImgSrc={candidateImgSrc}
             />
           ))}
         </>
-        <div className="separator"></div>
-        <div className="answer-list__expand p-24 row-centered">
+        <Divider my={0} mx="lg" />
+        <RowCentered p="lg">
           <ToggleButton
             isToggled={isExpanded}
             onClick={() => setExpanded(!isExpanded)}
@@ -37,7 +41,7 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
           >
             {isExpanded ? t("showFewer") : t("showMore")}
           </ToggleButton>
-        </div>
+        </RowCentered>
       </SectionCard>
     </article>
   );

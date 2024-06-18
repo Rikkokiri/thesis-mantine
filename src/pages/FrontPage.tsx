@@ -1,3 +1,4 @@
+import { PageSectionsColumn } from "@/layout";
 import { Button } from "@components/Button/Button";
 import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
 import { Title } from "@mantine/core";
@@ -20,18 +21,18 @@ export const FrontPage = () => {
   return (
     <>
       <div className="page-header">
-        <Title order={1} size="h2" className="mb-16">
+        <Title order={1} size="h2" mb="md">
           {t("frontPage.title")}
         </Title>
         <Button iconAfter={<FiChevronRight />} onClick={startCompass}>
           {t("frontPage.start")}
         </Button>
       </div>
-      <div className="page-sections__column py-24">
+      <PageSectionsColumn my="xl">
         <SectionCard title={t("candidates")}>
           <div></div>
         </SectionCard>
-      </div>
+      </PageSectionsColumn>
     </>
   );
 };

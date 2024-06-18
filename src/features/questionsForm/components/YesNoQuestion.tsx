@@ -1,7 +1,13 @@
 import { TFunction } from "i18next";
-import { RiThumbUpLine, RiThumbUpFill, RiThumbDownLine, RiThumbDownFill } from "react-icons/ri";
+import {
+  RiThumbUpLine,
+  RiThumbUpFill,
+  RiThumbDownLine,
+  RiThumbDownFill,
+} from "react-icons/ri";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { YesNoAnswer } from "@data/types";
+import { RowCentered } from "@/layout";
 
 interface IYesNoQuestionProps {
   t: TFunction;
@@ -14,7 +20,7 @@ export const YesNoQuestion = (props: IYesNoQuestionProps) => {
   const { answer, answerQuestion, questionId, t } = props;
 
   return (
-    <div className="row-centered answer__buttons">
+    <RowCentered gap="lg" mt="2.5rem">
       <ToggleButton
         isToggled={answer === YesNoAnswer.YES}
         onClick={() => answerQuestion(questionId, YesNoAnswer.YES)}
@@ -31,6 +37,6 @@ export const YesNoQuestion = (props: IYesNoQuestionProps) => {
       >
         {t("question.no")}
       </ToggleButton>
-    </div>
+    </RowCentered>
   );
 };

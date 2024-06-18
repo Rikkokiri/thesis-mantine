@@ -36,7 +36,7 @@ export const AdditionalInfo = (props: IAdditionalInfoProps) => {
           setIsModalOpen(false);
         }}
       >
-        <Title order={2} size="h4" className="pb-8">
+        <Title order={2} size="h4" pb="sm">
           {t("question.whatAbout")}
         </Title>
         <Text size="sm">{localize(info)}</Text>

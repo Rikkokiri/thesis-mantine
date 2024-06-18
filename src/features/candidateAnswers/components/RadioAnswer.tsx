@@ -1,5 +1,6 @@
 import { TFunction } from "i18next";
 import { DisplayRadioRange } from "./DisplayRadioRange";
+import { RowCentered } from "@/layout";
 
 interface IRadioAnswerProps {
   t: TFunction;
@@ -12,14 +13,14 @@ export const RadioAnswer = (props: IRadioAnswerProps) => {
   const { t, candidateAnswer, userAnswer, candidateImgSrc } = props;
 
   return (
-    <div className="row-centered answer__radio">
+    <RowCentered pt="sm">
       <DisplayRadioRange
         options={buildOptions(t, candidateAnswer, userAnswer, candidateImgSrc)}
         candidateAnswer={candidateAnswer}
         userAnswer={userAnswer}
         isReadonly
       />
-    </div>
+    </RowCentered>
   );
 };
 
@@ -27,7 +28,7 @@ const buildOptions = (
   t: TFunction,
   candidateAnswer: number | null,
   userAnswer: number | null,
-  candidateImgSrc: string
+  candidateImgSrc: string,
 ) => {
   const options = [
     {

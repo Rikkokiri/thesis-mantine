@@ -9,6 +9,7 @@ import { Tag } from "../../../components/Tag/Tag";
 import { RadioAnswer } from "./RadioAnswer";
 import { YesOrNoAnswer } from "./YesOrNoAnswer";
 import { CommentCard } from "./CommentCard";
+import { RowCentered } from "@/layout";
 
 interface ICardProps {
   question: Question;
@@ -23,15 +24,17 @@ export const AnswerCard = (props: ICardProps) => {
   const { localize } = useLocalizedString();
   const questionId = question.id;
 
-  const candidateComment = candidateAnswer?.comment ? localize(candidateAnswer.comment) : undefined;
+  const candidateComment = candidateAnswer?.comment
+    ? localize(candidateAnswer.comment)
+    : undefined;
 
   const userAnswer = getAnswerByQuestionId(question.id);
 
   return (
     <section className="answer-card">
-      <div className="row-centered card__header">
+      <RowCentered gap="lg">
         <Tag variant="negative">{`${question.position}/${questionsCount}`}</Tag>
-      </div>
+      </RowCentered>
       <Text size="xxl" fw="900" ta="center" className="question">
         {question.question.en}
       </Text>

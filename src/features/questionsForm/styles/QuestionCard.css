@@ -8,26 +8,3 @@
   border-radius: var(--border-radius-sm);
   max-width: 680px;
 }
-
-.card__header {
-  gap: 1.5rem;
-}
-
-.question {
-  max-width: 343px;
-  margin: 20px 0;
-}
-
-.info-buttons {
-  margin-top: 6px;
-  margin-bottom: 18px;
-}
-
-.answer__buttons {
-  gap: 24px; /* TODO: Use variable */
-  margin-top: 40px;
-}
-
-.answer__radio {
-  padding-top: 8px; /* TODO: Use variable */
-}

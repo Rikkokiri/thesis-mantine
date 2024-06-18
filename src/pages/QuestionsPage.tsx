@@ -22,7 +22,7 @@ export const QuestionsPage = () => {
       {inView && <CandidatesMatch />}
       <section className="question-page__header">
         {/* TODO: color: var(--heading-primary); */}
-        <Text size="sm" fw="700" className="m-0">
+        <Text size="sm" fw="700">
           {t("electionName")}
         </Text>
         <Title order={1} size="h2">
