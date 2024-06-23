@@ -1,5 +1,5 @@
-import "../styles/CandidateHeader.css";
-import { Text, Title } from "@mantine/core";
+import styles from "./CandidateHeader.module.css";
+import { Box, Text, Title } from "@mantine/core";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
 
 export const CandidateIntroHeader = (
@@ -12,15 +12,15 @@ export const CandidateIntroHeader = (
   }
 
   return (
-    <div className="candidate-header">
-      <div>
+    <Box className={styles.header}>
+      <Box>
         <Text size="sm" fw="700">
           {t("electionName")}
         </Text>
         <Title order={1} size="h1">
           {candidate.name}
         </Title>
-      </div>
+      </Box>
       {candidate.organization ||
         (candidate.creator && (
           <Text size="xs" fw="700" className="candidate-header__organization">
@@ -28,9 +28,9 @@ export const CandidateIntroHeader = (
             {candidate.organization || candidate.creator}
           </Text>
         ))}
-      <div className="candidate-number">
+      <Box className={styles.number}>
         {t("candidate.number")} {candidate.number}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };

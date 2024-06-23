@@ -1,10 +1,11 @@
-@import "./colors.css";
+/* @import "./colors.css"; */
 @import "./variables.css";
 
 /* @import "./reset.css"; */
 @import "./typography.css"; /* TODO Mantine: Remove ones heading colors fixed */
-@import "./themes/light-theme.css";
-@import "./themes/dark-theme.css";
+
+/* @import "./themes/light-theme.css";
+@import "./themes/dark-theme.css"; */
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* TODO: Update font family */
@@ -36,19 +37,6 @@ a:hover {
   height: 100%;
 }
 
-#main-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - var(--toolbar-height));
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  place-items: center flex-start;
-  flex: 1 0 auto;
-}
-
 #app-footer {
   background-color: var(--footer-bg);
   width: 100%;
@@ -70,11 +58,4 @@ main {
 .footer-links a {
   padding: 12px 24px;
   font-weight: 700;
-}
-
-.page-header {
-  padding: 24px;
-  text-align: center;
-  background-color: var(--page-header-bg);
-  width: 100%;
 }

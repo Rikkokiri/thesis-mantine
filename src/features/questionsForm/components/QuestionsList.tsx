@@ -1,17 +1,18 @@
 import { Question } from "src/data/types";
 import { QuestionCard } from "./QuestionCard";
 import { IQuestionsForm } from "../hooks/useQuestionsForm";
-import "../styles/QuestionsForm.css";
+import { Box, Stack } from "@mantine/core";
 
 export const QuestionsList = (props: IQuestionsForm) => {
   const { categoriesAndQuestions, questionsTotalCount, answers } = props;
 
   return (
-    <section className="questions-list">
+    <Box component="section" /* w="100%" */>
       {categoriesAndQuestions.map((category) => (
-        <article key={category.id} className="question-page__category-section">
+        <Stack component="article" key={category.id} align="center">
           {category.questions.map((question: Question) => (
             <QuestionCard
+              // TODO: width 100%
               key={question.id}
               category={category}
               question={question}
@@ -21,9 +22,9 @@ export const QuestionsList = (props: IQuestionsForm) => {
               toggleQuestionHiding={props.toggleQuestionHiding}
             />
           ))}
-        </article>
+        </Stack>
       ))}
       {/* TODO: Link to results page */}
-    </section>
+    </Box>
   );
 };

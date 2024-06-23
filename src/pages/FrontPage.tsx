@@ -1,5 +1,5 @@
 import { PageSectionsColumn } from "@/layout";
-import { Button } from "@components/Button/Button";
+import { Box, Button } from "@mantine/core";
 import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
 import { Title } from "@mantine/core";
 import { useAnswerStore } from "@stores/answerStore";
@@ -20,14 +20,14 @@ export const FrontPage = () => {
 
   return (
     <>
-      <div className="page-header">
+      <Box p={24} bg="primaryBg" style={{ textAlign: "center" }}>
         <Title order={1} size="h2" mb="md">
           {t("frontPage.title")}
         </Title>
-        <Button iconAfter={<FiChevronRight />} onClick={startCompass}>
+        <Button leftSection={<FiChevronRight />} onClick={startCompass}>
           {t("frontPage.start")}
         </Button>
-      </div>
+      </Box>
       <PageSectionsColumn my="xl">
         <SectionCard title={t("candidates")}>
           <div></div>

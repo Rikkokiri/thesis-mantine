@@ -1,36 +1,45 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Toolbar } from "./components/Toolbar/Toolbar";
 import { useDetectTheme } from "@hooks/useDetectTheme";
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { Flex, MantineProvider } from "@mantine/core";
+import { cssResolver, themeOverride } from "./theme";
+import { useColorScheme } from "@mantine/hooks";
+import { AppFooter } from "./layout/footer";
 
 function App() {
   const { prefersDarkMode, setActiveTheme } = useDetectTheme();
-  const { t } = useTranslation();
 
   useEffect(() => {
     setActiveTheme(prefersDarkMode);
   }, [prefersDarkMode, setActiveTheme]);
 
+  const colorScheme = useColorScheme();
+
   return (
-    <>
+    <MantineProvider
+      theme={{
+        ...themeOverride,
+        primaryColor: colorScheme === "light" ? "blueBlack" : "gray",
+      }}
+      cssVariablesResolver={cssResolver}
+      defaultColorScheme="auto"
+    >
       <Toolbar />
-      <div id="main-wrapper">
-        <main>
+      <Flex direction="column" h="calc(100% - 72px)">
+        <Flex
+          component="main"
+          direction="column"
+          style={{
+            flex: "1 0 auto",
+            placeItems: "center flex-start",
+          }}
+        >
           <Outlet />
-        </main>
-        <footer id="app-footer">
-          <div className="footer-links">
-            <Link to="/">{t("footer.frontPageLink")}</Link>
-            <a href="https://vaalit.yle.fi/vaalikone/presidentinvaali2024">
-              Ylen vaalikone presidentivaaleissa 2024
-            </a>
-            {/* TODO: Link to source code */}
-          </div>
-          {/* TODO: Language menu */}
-        </footer>
-      </div>
-    </>
+        </Flex>
+        <AppFooter />
+      </Flex>
+    </MantineProvider>
   );
 }
 

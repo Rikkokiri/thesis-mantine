@@ -1,4 +1,4 @@
-.candidate-header {
+.header {
   background-color: var(--card-bg);
   padding: 24px;
   margin-bottom: 48px;
@@ -9,7 +9,7 @@
   gap: 16px;
 }
 
-.candidate-number {
+.number {
   font-size: 20px;
   line-height: 150%;
   font-weight: 700;

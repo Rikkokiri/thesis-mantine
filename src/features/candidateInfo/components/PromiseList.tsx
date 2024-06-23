@@ -1,4 +1,5 @@
-import "../styles/PromiseList.css";
+import { Box, Flex } from "@mantine/core";
+import styles from "./PromiseList.module.css";
 
 interface IPromiseListProps {
   items: string[];
@@ -8,12 +9,12 @@ export const PromiseList = (props: IPromiseListProps) => {
   const { items } = props;
 
   return (
-    <ol className="promise-list">
+    <ol className={styles.list}>
       {items.map((item: string, index: number) => (
-        <li key={index} className="promise-list__li">
-          <div className="promise-list__number">{index + 1}</div>
-          <div className="promise-list__li-content">{item}</div>
-        </li>
+        <Flex key={index} gap="1.5rem" pb="1rem">
+          <Box className={styles.number}>{index + 1}</Box>
+          <Box pb="5px">{item}</Box>
+        </Flex>
       ))}
     </ol>
   );

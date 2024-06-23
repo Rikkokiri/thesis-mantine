@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
-import { Text, Title } from "@mantine/core";
-import "./QuestionsPage.css";
+import { Flex, Stack, Text, Title } from "@mantine/core";
 import { FiArrowDown } from "react-icons/fi";
 import { CandidatesMatch } from "src/features/candidatesMatch";
 import { getQuestionsTotalCount } from "@data/api";
@@ -20,7 +19,13 @@ export const QuestionsPage = () => {
   return (
     <>
       {inView && <CandidatesMatch />}
-      <section className="question-page__header">
+      <Stack
+        component="section"
+        align="center"
+        py="2rem"
+        style={{ textAlign: "center" }}
+        bg="primaryBg"
+      >
         {/* TODO: color: var(--heading-primary); */}
         <Text size="sm" fw="700">
           {t("electionName")}
@@ -28,7 +33,7 @@ export const QuestionsPage = () => {
         <Title order={1} size="h2">
           {t("questionPage.findYourCandidate")}
         </Title>
-        <Text size="md" className="page-intro">
+        <Text size="md" m="1rem" mb="2rem" maw="680px">
           {t("questionPage.description")}
         </Text>
 
@@ -43,10 +48,10 @@ export const QuestionsPage = () => {
           {t("questionPage.findYourCandidate")}
         </Button>
         <div ref={questionsStartRef} />
-      </section>
-      <div className="question-page__content" ref={ref}>
+      </Stack>
+      <Flex ref={ref} w="100%" direction="column" pt="1.5rem" align="center">
         <QuestionForm />
-      </div>
+      </Flex>
     </>
   );
 };

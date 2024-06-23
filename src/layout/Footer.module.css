@@ -1,0 +1,21 @@
+.footer {
+  width: 100%;
+  padding: 21px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 4px 16px;
+  font-size: 14px;
+}
+
+.links a {
+  padding: 12px 24px;
+  font-weight: 700;
+}
