@@ -20,6 +20,8 @@ function ColorSchemeWrapper({ children }: { children: React.ReactNode }) {
 }
 
 export const decorators = [
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (renderStory: any) => <ColorSchemeWrapper>{renderStory()}</ColorSchemeWrapper>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (renderStory: any) => <MantineProvider theme={theme}>{renderStory()}</MantineProvider>,
 ];

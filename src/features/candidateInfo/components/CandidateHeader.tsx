@@ -2,9 +2,7 @@ import styles from "./CandidateHeader.module.css";
 import { Box, Text, Title } from "@mantine/core";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
 
-export const CandidateIntroHeader = (
-  props: ReturnType<typeof useCandidateInfo>,
-) => {
+export const CandidateIntroHeader = (props: ReturnType<typeof useCandidateInfo>) => {
   const { t, candidate } = props;
 
   if (!candidate) {
@@ -24,8 +22,7 @@ export const CandidateIntroHeader = (
       {candidate.organization ||
         (candidate.creator && (
           <Text size="xs" fw="700" className="candidate-header__organization">
-            {t("candidate.createdBy")}{" "}
-            {candidate.organization || candidate.creator}
+            {t("candidate.createdBy")} {candidate.organization || candidate.creator}
           </Text>
         ))}
       <Box className={styles.number}>

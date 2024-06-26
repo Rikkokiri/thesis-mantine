@@ -1,7 +1,7 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.configPath": ".prettierrc.js",
+  "prettier.configPath": ".prettierrc",
   "cSpell.words": [
     "Avenir",
     "CHAKRA",
@@ -34,5 +34,6 @@
   "peacock.color": "#339af0",
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
