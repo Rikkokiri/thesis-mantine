@@ -1,14 +1,12 @@
-import "../styles/CandidatesMatchBar.css";
-import { ToggleButton } from "@components/ToggleButton/ToggleButton";
+import classes from "../styles/CandidatesMatchBar.module.css";
 import { useState } from "react";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import { MatchButton } from "./MatchButton";
 import { useCandidatesMatch } from "../hooks/useCandidatesMatch";
 import { MatchWithDetails } from "../types";
+import { ActionIcon, Box, Flex } from "@mantine/core";
 
-export const CandidatesMatchBar = (
-  props: ReturnType<typeof useCandidatesMatch>,
-) => {
+export const CandidatesMatchBar = (props: ReturnType<typeof useCandidatesMatch>) => {
   const { topFourCandidates, topCount, displayMatches } = props;
   const [resultsHidden, setResultsHidden] = useState<boolean>(false);
 
@@ -17,45 +15,33 @@ export const CandidatesMatchBar = (
   }
 
   return (
-    <header className="match-bar">
-      <div className="match-bar__content">
-        <div className="match-bar__matches">
+    <Flex component="header" className={classes.bar}>
+      <Flex align="center" maw={520} w="100%">
+        <Flex className={classes.matches}>
           {resultsHidden || !topFourCandidates
-            ? [...Array(topCount).keys()].map((index) => (
-                <MatchPlaceholder key={index} />
-              ))
+            ? [...Array(topCount).keys()].map((index) => <MatchPlaceholder key={index} />)
             : topFourCandidates.map((candidate: MatchWithDetails) => (
                 <MatchButton candidate={candidate} key={candidate.id} />
               ))}
-        </div>
-        <ToggleButton
-          isToggled={resultsHidden}
+        </Flex>
+        <ActionIcon
           onClick={() => setResultsHidden(!resultsHidden)}
-          untoggledIcon={<FiEye />}
-          toggledIcon={<FiEyeOff />}
-          variant="ghost"
-          size="medium"
-          iconSize={24}
-          className="match-bar__toggle"
-          toggledClassName="toggled-transparent"
-        />
-      </div>
-    </header>
+          variant="transparent"
+          size="lg"
+          // iconSize={24}
+          // className="match-bar__toggle"
+          // toggledClassName="toggled-transparent"
+        >
+          {resultsHidden ? <FiEyeOff size={24} /> : <FiEye size={24} />}
+        </ActionIcon>
+      </Flex>
+    </Flex>
   );
 };
 
-/*
-.column-centered {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-*/
 const MatchPlaceholder = () => (
-  <div className="column-centered placeholder-match">
-    <div className="placeholder-candidate"></div>
-    <div className="placeholder-score"></div>
-  </div>
+  <Flex direction="column" justify="space-between" h="100%" w="2rem">
+    <Box className={classes.placeholder} h={34} />
+    <Box className={classes.placeholder} h={18} />
+  </Flex>
 );

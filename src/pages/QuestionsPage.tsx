@@ -45,6 +45,7 @@ export const QuestionsPage = () => {
               behavior: "smooth",
             });
           }}
+          variant="filled"
           size="md"
         >
           {t("questionPage.findYourCandidate")}

@@ -1,4 +1,4 @@
-import { InfoGrid, InfoGridItem, InfoGridRow } from "@components/InfoGrid/InfoGrid";
+import { GridProps, InfoGrid, InfoGridItem, InfoGridRow } from "@components/InfoGrid/InfoGrid";
 import { Candidate } from "@data/candidates";
 import { useLocalizedString } from "@hooks/useLocalizedString";
 import { TFunction } from "i18next";
@@ -8,6 +8,8 @@ interface IBackgroundDetailsProps {
   candidate: Candidate;
 }
 
+const LabelItem = (props: GridProps) => <InfoGridItem fw={700} {...props} />;
+
 export const BackgroundDetailsGrid = (props: IBackgroundDetailsProps) => {
   const { t, candidate } = props;
   const { localize } = useLocalizedString();
@@ -15,7 +17,7 @@ export const BackgroundDetailsGrid = (props: IBackgroundDetailsProps) => {
   return (
     <InfoGrid>
       <InfoGridRow>
-        <InfoGridItem className="body-bold">{t("candidate.website")}</InfoGridItem>
+        <LabelItem>{t("candidate.website")}</LabelItem>
         <InfoGridItem>
           <a href={candidate.website?.url} target="_blank" rel="noreferrer">
             {candidate.website?.text ? localize(candidate.website?.text) : candidate.website?.url}
@@ -23,11 +25,11 @@ export const BackgroundDetailsGrid = (props: IBackgroundDetailsProps) => {
         </InfoGridItem>
       </InfoGridRow>
       <InfoGridRow>
-        <InfoGridItem className="body-bold">Creator</InfoGridItem>
+        <LabelItem>Creator</LabelItem>
         <InfoGridItem>{candidate.creator}</InfoGridItem>
       </InfoGridRow>
       <InfoGridRow>
-        <InfoGridItem className="body-bold">Github repository</InfoGridItem>
+        <LabelItem>Github repository</LabelItem>
         <InfoGridItem>{candidate.github?.url || "-"}</InfoGridItem>
       </InfoGridRow>
     </InfoGrid>

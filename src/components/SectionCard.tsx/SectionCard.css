@@ -1,7 +1,7 @@
 .section-card {
   width: 100%;
   background-color: var(--card-bg);
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--mantine-radius-default);
 }
 
 .section-card__header {

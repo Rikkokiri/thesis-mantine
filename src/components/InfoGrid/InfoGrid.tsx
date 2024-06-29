@@ -1,19 +1,17 @@
 import { ReactNode } from "react";
-import "./InfoGrid.css";
+import classes from "./InfoGrid.module.css";
+import { Box, BoxProps } from "@mantine/core";
 
-interface GridProps {
+export interface GridProps extends BoxProps {
   children: ReactNode;
-  className?: string;
 }
 
-export const InfoGrid = ({ children }: { children: ReactNode }) => (
-  <ul className="info-grid">{children}</ul>
+export const InfoGrid = ({ className, ...rest }: GridProps) => (
+  <Box component="ul" className={`${classes.grid} ${className ?? ""}`} {...rest} />
 );
 
-export const InfoGridRow = ({ children, className }: GridProps) => (
-  <li className={`info-grid__row ${className ?? ""}`}>{children}</li>
+export const InfoGridRow = ({ className, ...rest }: GridProps) => (
+  <Box component="li" className={`${classes.row} ${className ?? ""}`} {...rest} />
 );
 
-export const InfoGridItem = ({ children, className }: GridProps) => (
-  <div className={`info-grid__item ${className ?? ""}`}>{children}</div>
-);
+export const InfoGridItem = (props: GridProps) => <Box pb={5} {...props} />;

@@ -1,5 +1,5 @@
 import { Box, Flex } from "@mantine/core";
-import styles from "./PromiseList.module.css";
+import styles from "../styles/PromiseList.module.css";
 
 interface IPromiseListProps {
   items: string[];

@@ -10,13 +10,6 @@
   border-bottom: none;
 }
 
-.answer-list .separator {
-  margin: 0 auto;
-  height: 1px;
-  max-width: calc(100% - 2 * 24px);
-  background-color: var(--separator);
-}
-
 .answer-list__expand-button.toggled {
   background-color: transparent;
 }

@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  gap: 24px;
+  position: relative;
+}
+
+.container:has(.user-answer) {
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.user-answer {
+  --bubble-padding: 10px;
+
+  position: absolute;
+  bottom: calc(100% + var(--bubble-padding));
+}

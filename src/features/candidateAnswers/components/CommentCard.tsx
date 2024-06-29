@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import "../styles/CommentCard.css";
+import { Flex } from "@mantine/core";
+import classes from "../styles/CommentCard.module.css";
 import { QuestionType, YesNoAnswer } from "@data/types";
 
 interface ICommentCardProps {
@@ -21,16 +22,20 @@ export const CommentCard = (props: ICommentCardProps) => {
   };
 
   return (
-    <div className={`comment-card answer-${questionType === QuestionType.AGREE_SCALE && "scale"}`}>
+    <Flex
+      direction="column"
+      className={classes.card}
+      mt={questionType === QuestionType.AGREE_SCALE ? "1.75rem" : "0.75rem"}
+    >
       <div
-        className="comment-card__arrow"
+        className={classes.arrow}
         style={{
           left: `${arrowPosition(answer, questionType)}%`,
           display: answer === undefined ? "none" : "inherit",
         }}
       />
-      <div className="comment-card__header">{header}</div>
-      <div className="comment-card__body">{body}</div>
-    </div>
+      <div className={classes.header}>{header}</div>
+      <div>{body}</div>
+    </Flex>
   );
 };

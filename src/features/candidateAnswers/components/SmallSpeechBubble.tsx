@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
-import "../styles/SmallSpeechBubble.css";
+import classes from "../styles/SmallSpeechBubble.module.css";
 import { QuestionType } from "@data/types";
 import { doesAgree } from "@data/data-utils";
+import { Flex } from "@mantine/core";
 
 interface ISpeechBubbleProps {
   content: ReactNode;
@@ -14,11 +15,12 @@ export const SmallSpeechBubble = (props: ISpeechBubbleProps) => {
   const agreeingAnswer = doesAgree(props.answer, props.questionType);
 
   return (
-    <div
-      className={`speech-bubble ${agreeingAnswer ? "agree" : "disagree"} ${props.className || ""}`}
+    <Flex
+      bg={agreeingAnswer ? "var(--agree)" : "var(--disagree)"}
+      className={`${classes.bubble} ${props.className || ""}`}
     >
-      <div className="speech-bubble__arrow"></div>
-      <div className="speech-bubble__content">{props.content}</div>
-    </div>
+      <div className={classes.arrow}></div>
+      <div>{props.content}</div>
+    </Flex>
   );
 };

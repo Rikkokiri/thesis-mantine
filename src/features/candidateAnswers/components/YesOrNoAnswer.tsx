@@ -1,6 +1,7 @@
 import { TFunction } from "i18next";
 import { RiThumbUpLine, RiThumbDownLine } from "react-icons/ri";
-import "../styles/YesOrNoAnswer.css";
+import { Flex } from "@mantine/core";
+import classes from "../styles/YesOrNoAnswer.module.css";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { YesNoAnswer, QuestionType } from "@data/types";
 import { SmallSpeechBubble } from "./SmallSpeechBubble";
@@ -33,15 +34,16 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
   ];
 
   return (
-    <div className="yes-or-no-answer__container">
+    <Flex className={classes.container}>
       {options.map((option) => {
         const isToggled = candidateAnswer === option.value;
 
         return (
-          <div className="yes-or-no-answer__option" key={option.value}>
+          <Flex key={option.value} direction="column" align="center">
             <ToggleButton
-              isDisabled
+              disabled
               variant="outline"
+              toggledVariant="outline"
               isToggled={isToggled}
               toggledIcon={
                 <CandidateIndicator
@@ -49,9 +51,14 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
                   imgSrc={candidateImgSrc}
                 />
               }
-              iconSize={isToggled ? 24 : undefined}
+              mt={8}
+              size="md"
               untoggledIcon={
-                option.value === YesNoAnswer.YES ? <RiThumbUpLine /> : <RiThumbDownLine />
+                option.value === YesNoAnswer.YES ? (
+                  <RiThumbUpLine size={24} />
+                ) : (
+                  <RiThumbDownLine size={24} />
+                )
               }
             >
               {option.label}
@@ -61,12 +68,12 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
                 content={t("question.yourAnswer")}
                 answer={userAnswer}
                 questionType={QuestionType.YES_NO}
-                className="user-answer-bubble"
+                className={classes["user-answer"]}
               />
             )}
-          </div>
+          </Flex>
         );
       })}
-    </div>
+    </Flex>
   );
 };

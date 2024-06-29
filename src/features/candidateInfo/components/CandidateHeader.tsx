@@ -1,4 +1,4 @@
-import styles from "./CandidateHeader.module.css";
+import styles from "../styles/CandidateHeader.module.css";
 import { Box, Text, Title } from "@mantine/core";
 import { useCandidateInfo } from "../hooks/useCandidateInfo";
 

@@ -1,0 +1,12 @@
+.overlay {
+  background-color: var(--modal-backdrop);
+}
+
+.content {
+  box-shadow: var(--modal-box-shadow);
+}
+
+.header,
+.content {
+  background: var(--modal-bg);
+}

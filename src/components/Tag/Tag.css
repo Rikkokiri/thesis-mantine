@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   height: 23px;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--mantine-radius-default);
 }
 
 .tag--default {

@@ -6,7 +6,7 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 import { AnswerCard } from "./AnswerCard";
 import { useCandidateAnswers } from "../hooks/useCandidateAnswers";
 import { RowCentered } from "@/layout";
-import { Divider } from "@mantine/core";
+import { Box, Divider } from "@mantine/core";
 
 export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
   const { t, questions, candidateAnswers, candidateImgSrc } = props;
@@ -14,7 +14,7 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
   const questionsToShow = isExpanded ? questions : [questions[0]];
 
   return (
-    <article className="answer-list">
+    <Box component="article" w="100%" className="answer-list">
       <SectionCard title={t("candidateSections.answers")}>
         <>
           {questionsToShow.map((question) => (
@@ -32,14 +32,17 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
           <ToggleButton
             isToggled={isExpanded}
             onClick={() => setExpanded(!isExpanded)}
-            toggledIcon={<FiMinus />}
-            untoggledIcon={<FiPlus />}
+            toggledIcon={<FiMinus size={24} />}
+            untoggledIcon={<FiPlus size={24} />}
+            size="md"
+            variant="outline"
+            toggledVariant="outline"
             className="answer-list__expand-button"
           >
             {isExpanded ? t("showFewer") : t("showMore")}
           </ToggleButton>
         </RowCentered>
       </SectionCard>
-    </article>
+    </Box>
   );
 };

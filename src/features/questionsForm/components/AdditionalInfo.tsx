@@ -23,7 +23,8 @@ export const AdditionalInfo = (props: IAdditionalInfoProps) => {
         onClick={open}
         untoggledIcon={<FiInfo size={20} />}
         toggledIcon={<FiInfo size={20} />}
-        variant="subtle"
+        variant="transparent"
+        toggledVariant="transparent"
         size="xs"
       >
         {t("question.whatAbout")}
