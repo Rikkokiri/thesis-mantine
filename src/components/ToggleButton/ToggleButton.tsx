@@ -1,40 +1,32 @@
-import { Button, ButtonVariant, ISharedButtonProps } from "../Button/Button";
+import { Button, ButtonProps } from "@mantine/core";
 import "./ToggleButton.css";
 
-type ToggleButtonVariant = Extract<ButtonVariant, "outline" | "ghost">;
-
-interface IToggleButtonProps extends ISharedButtonProps {
+interface IToggleButtonProps extends ButtonProps {
+  onClick?: () => void;
   isToggled: boolean;
   untoggledIcon?: JSX.Element;
   toggledIcon?: JSX.Element;
-  variant?: ToggleButtonVariant;
+  variant?: ButtonProps["variant"];
+  toggledVariant?: ButtonProps["variant"];
   toggledClassName?: string;
 }
 
 export const ToggleButton = ({
-  children,
   isToggled,
-  isDisabled,
-  onClick,
   untoggledIcon,
   toggledIcon,
   variant = "outline",
-  size,
-  iconSize,
+  toggledVariant = "subtle",
   className,
   toggledClassName = "toggled",
+  ...rest
 }: IToggleButtonProps) => {
   return (
     <Button
-      onClick={onClick}
-      iconBefore={isToggled ? toggledIcon : untoggledIcon}
+      leftSection={isToggled ? toggledIcon : untoggledIcon}
       className={`toggle-button ${isToggled ? toggledClassName : ""} ${className || ""}`}
-      variant={variant}
-      size={size}
-      isDisabled={isDisabled}
-      iconSize={iconSize}
-    >
-      {children}
-    </Button>
+      variant={isToggled ? toggledVariant : variant}
+      {...rest}
+    />
   );
 };

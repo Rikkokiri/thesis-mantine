@@ -1,0 +1,7 @@
+.root {
+  color: var(--heading-primary);
+
+  &[data-size="h3"] {
+    color: var(--text-primary);
+  }
+}

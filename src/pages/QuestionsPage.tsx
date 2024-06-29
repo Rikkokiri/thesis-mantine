@@ -1,12 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
-import { Flex, Stack, Text, Title } from "@mantine/core";
+import { Button, Flex, Stack, Text, Title } from "@mantine/core";
 import { FiArrowDown } from "react-icons/fi";
 import { CandidatesMatch } from "src/features/candidatesMatch";
 import { getQuestionsTotalCount } from "@data/api";
 import { useRef } from "react";
 import { QuestionForm } from "../features/questionsForm";
-import { Button } from "../components/Button/Button";
 
 export const QuestionsPage = () => {
   const { t } = useTranslation();
@@ -23,8 +22,10 @@ export const QuestionsPage = () => {
         component="section"
         align="center"
         py="2rem"
+        w="100%"
         style={{ textAlign: "center" }}
-        bg="primaryBg"
+        // bg="card" // I don't know why this definition does not work?
+        bg="var(--card-bg)"
       >
         {/* TODO: color: var(--heading-primary); */}
         <Text size="sm" fw="700">
@@ -38,12 +39,13 @@ export const QuestionsPage = () => {
         </Text>
 
         <Button
-          iconBefore={<FiArrowDown />}
+          leftSection={<FiArrowDown size={20} />}
           onClick={() => {
             questionsStartRef.current?.scrollIntoView({
               behavior: "smooth",
             });
           }}
+          size="md"
         >
           {t("questionPage.findYourCandidate")}
         </Button>

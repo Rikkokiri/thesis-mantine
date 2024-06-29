@@ -1,9 +1,9 @@
 import "../styles/MatchButton.css";
 import "../styles/CandidateModal.css";
-import { Modal, Text } from "@mantine/core";
+import { Button, Modal, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
-import { ButtonLink } from "@components/ButtonLink/ButtonLink";
+import { Link } from "react-router-dom";
 import { MatchWithDetails } from "../types";
 
 interface IMatchButtonProps {
@@ -31,7 +31,7 @@ export const MatchButton = ({ candidate }: IMatchButtonProps) => {
           </Text>
         </div>
       </button>
-      <Modal opened={opened} onClose={close}>
+      <Modal opened={opened} onClose={close} centered>
         <div className="candidate-modal__body">
           <div className="candidate-modal__img-wrapper">
             <img src={logoSrc} aria-hidden className="candidate-modal__img" alt="" />
@@ -50,9 +50,9 @@ export const MatchButton = ({ candidate }: IMatchButtonProps) => {
           </div>
         </div>
         <div className="candidate-modal__actions">
-          <ButtonLink to={`/candidates/${candidate.id}`} variant="outline" size="small">
+          <Button component={Link} to={`/candidates/${candidate.id}`} variant="outline" size="xs">
             {t("candidate.getToKnow")}
-          </ButtonLink>
+          </Button>
         </div>
       </Modal>
     </>

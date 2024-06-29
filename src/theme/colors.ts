@@ -16,7 +16,7 @@ const baseColors: Partial<MantineThemeColors> = {
     "#1f2123", // --gray-90 = mantine-color-gray-9
     "#131415", // --gray-95 = mantine-color-gray-10
   ],
-  yleLogo: colorsTuple("#00b4c8"),
+  // yleLogo: colorsTuple("#00b4c8"),
   blueBlack: colorsTuple("#131415"),
   darkBlue: colorsTuple("#1A2B4A"),
   /* Semantic colors: light theme */
@@ -26,19 +26,31 @@ const baseColors: Partial<MantineThemeColors> = {
   liveRed: colorsTuple("#e90e43"),
   greenBright: colorsTuple("#06b173"),
   /* Candidate colors */
-  antBlue: colorsTuple("#1677ff"),
-  mantineBlue: colorsTuple("#339af0"),
-  chakraTeal: colorsTuple("#319795"),
-  shadcnBlack: colorsTuple("#18181b"),
+  "ant-blue": colorsTuple("#1677ff"),
+  "mantine-blue": colorsTuple("#339af0"),
+  "chakra-teal": colorsTuple("#319795"),
+  "shadcn-black": colorsTuple("#18181b"),
 };
 
 /* Themed colors */
 export const colors: Partial<MantineThemeColors> = {
   ...baseColors,
-  primaryBg: virtualColor({
-    name: "primaryBg",
-    dark: "blueBlack",
+  primary: virtualColor({
+    name: "primary", // name – color name, must be the same as the key in theme.colors object
+    dark: "gray.0",
+    light: "blueBlack",
+  }),
+  bgBody: virtualColor({
+    name: "bgBody",
+    dark: "blueBlack.1",
     light: "gray.1",
+  }),
+  card: virtualColor({
+    name: "card",
+    dark: "blueBlack",
+    light: "var(--mantine-color-white)",
+    // light: "#fff",
+    // light: "white",
   }),
   textPrimary: virtualColor({
     name: "textPrimary",
@@ -50,11 +62,11 @@ export const colors: Partial<MantineThemeColors> = {
     dark: "gray.0", // TODO: Mantine, should be white
     light: "darkBlue",
   }),
-  footerBg: virtualColor({
+  /* footerBg: virtualColor({
     name: "footer",
     dark: "gray.9",
     light: "gray.1",
-  }),
+  }), */
   agree: virtualColor({
     name: "agree",
     dark: "greenBright",
@@ -65,5 +77,4 @@ export const colors: Partial<MantineThemeColors> = {
     dark: "liveRed",
     light: "error",
   }),
-  // focusOutline: virtualColor({}),
 };

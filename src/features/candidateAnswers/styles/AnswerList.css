@@ -3,7 +3,7 @@
 }
 
 .answer-list .answer-card {
-  border-bottom: 1px solid var(--bg-primary);
+  border-bottom: 1px solid var(--bg-body);
 }
 
 .answer-list .answer-card:last-of-type {

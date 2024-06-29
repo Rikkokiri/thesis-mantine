@@ -1,11 +1,10 @@
 import { FiInfo } from "react-icons/fi";
 import { LocalizedString } from "@data/types";
-import { Modal } from "@components/Modal/Modal";
 import { TFunction } from "i18next";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { useLocalizedString } from "@hooks/useLocalizedString";
-import { useState } from "react";
-import { Text, Title } from "@mantine/core";
+import { Modal, Text } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 
 interface IAdditionalInfoProps {
   t: TFunction;
@@ -15,30 +14,21 @@ interface IAdditionalInfoProps {
 export const AdditionalInfo = (props: IAdditionalInfoProps) => {
   const { t, info } = props;
   const { localize } = useLocalizedString();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <>
       <ToggleButton
-        isToggled={isModalOpen}
-        onClick={() => setIsModalOpen(true)}
-        untoggledIcon={<FiInfo />}
-        toggledIcon={<FiInfo />}
-        variant="ghost"
-        size="small"
-        toggledClassName=""
+        isToggled={opened}
+        onClick={open}
+        untoggledIcon={<FiInfo size={20} />}
+        toggledIcon={<FiInfo size={20} />}
+        variant="subtle"
+        size="xs"
       >
         {t("question.whatAbout")}
       </ToggleButton>
-      <Modal
-        isOpen={isModalOpen}
-        closeModal={() => {
-          setIsModalOpen(false);
-        }}
-      >
-        <Title order={2} size="h4" pb="sm">
-          {t("question.whatAbout")}
-        </Title>
+      <Modal opened={opened} onClose={close} title={t("question.whatAbout")} centered>
         <Text size="sm">{localize(info)}</Text>
       </Modal>
     </>

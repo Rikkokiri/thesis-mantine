@@ -7,12 +7,11 @@ export const QuestionsList = (props: IQuestionsForm) => {
   const { categoriesAndQuestions, questionsTotalCount, answers } = props;
 
   return (
-    <Box component="section" /* w="100%" */>
+    <Box component="section" w="100%">
       {categoriesAndQuestions.map((category) => (
         <Stack component="article" key={category.id} align="center">
           {category.questions.map((question: Question) => (
             <QuestionCard
-              // TODO: width 100%
               key={question.id}
               category={category}
               question={question}
@@ -24,7 +23,6 @@ export const QuestionsList = (props: IQuestionsForm) => {
           ))}
         </Stack>
       ))}
-      {/* TODO: Link to results page */}
     </Box>
   );
 };

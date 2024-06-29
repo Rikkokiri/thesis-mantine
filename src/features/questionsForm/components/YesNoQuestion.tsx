@@ -1,10 +1,5 @@
 import { TFunction } from "i18next";
-import {
-  RiThumbUpLine,
-  RiThumbUpFill,
-  RiThumbDownLine,
-  RiThumbDownFill,
-} from "react-icons/ri";
+import { RiThumbUpLine, RiThumbUpFill, RiThumbDownLine, RiThumbDownFill } from "react-icons/ri";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
 import { YesNoAnswer } from "@data/types";
 import { RowCentered } from "@/layout";
@@ -24,16 +19,22 @@ export const YesNoQuestion = (props: IYesNoQuestionProps) => {
       <ToggleButton
         isToggled={answer === YesNoAnswer.YES}
         onClick={() => answerQuestion(questionId, YesNoAnswer.YES)}
-        untoggledIcon={<RiThumbUpLine />}
-        toggledIcon={<RiThumbUpFill />}
+        untoggledIcon={<RiThumbUpLine size={20} />}
+        toggledIcon={<RiThumbUpFill size={20} />}
+        size="md"
+        variant="outline"
+        toggledVariant="outline"
       >
         {t("question.yes")}
       </ToggleButton>
       <ToggleButton
         isToggled={answer === YesNoAnswer.NO}
         onClick={() => answerQuestion(questionId, YesNoAnswer.NO)}
-        untoggledIcon={<RiThumbDownLine />}
-        toggledIcon={<RiThumbDownFill />}
+        untoggledIcon={<RiThumbDownLine size={20} />}
+        toggledIcon={<RiThumbDownFill size={20} />}
+        size="md"
+        variant="outline"
+        toggledVariant="outline"
       >
         {t("question.no")}
       </ToggleButton>

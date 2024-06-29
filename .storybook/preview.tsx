@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { addons } from "@storybook/preview-api";
 import { DARK_MODE_EVENT_NAME } from "storybook-dark-mode";
 import { MantineProvider, useMantineColorScheme } from "@mantine/core";
-import { theme } from "../src/theme";
+import { themeOverride } from "../src/theme";
 
 const channel = addons.getChannel();
 
@@ -23,5 +23,5 @@ export const decorators = [
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (renderStory: any) => <ColorSchemeWrapper>{renderStory()}</ColorSchemeWrapper>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (renderStory: any) => <MantineProvider theme={theme}>{renderStory()}</MantineProvider>,
+  (renderStory: any) => <MantineProvider theme={themeOverride}>{renderStory()}</MantineProvider>,
 ];

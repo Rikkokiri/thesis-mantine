@@ -18,29 +18,20 @@ export const Toolbar = () => {
     <Flex
       component="header"
       align="center"
-      bg="primaryBg"
+      bg="var(--toolbar-bg)"
       px="1.5rem"
-      // h="var(--toolbar-height)"
       h={theme.other.toolbarHeight}
       style={{
         position: "relative",
         boxShadow: "rgba(0, 0, 0, 15%) 0 0 7px 0", // TODO: Mantine - define via theme
+        a: {
+          textDecoration: "none",
+        },
       }}
     >
-      <Flex
-        component="nav"
-        maw="1080px"
-        align="center"
-        justify="center"
-        fw="700"
-      >
+      <Flex component="nav" maw="1080px" align="center" justify="center" fw="700">
         <Flex gap="1.5rem" align="center">
-          <Box
-            h="2.5rem"
-            w="2.5rem"
-            bg="yleLogo"
-            style={{ borderRadius: "2px" }}
-          ></Box>
+          <Box h="2.5rem" w="2.5rem" bg="var(--yle-logo)" style={{ borderRadius: "2px" }}></Box>
           <Link to={Route.ROOT}>{t("navigation.frontPage")}</Link>
         </Flex>
       </Flex>

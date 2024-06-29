@@ -21,9 +21,7 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
             <AnswerCard
               key={question.id}
               question={question}
-              candidateAnswer={
-                candidateAnswers[question.id] ?? { answer: null }
-              }
+              candidateAnswer={candidateAnswers[question.id] ?? { answer: null }}
               questionsCount={questions.length}
               candidateImgSrc={candidateImgSrc}
             />
@@ -36,7 +34,6 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
             onClick={() => setExpanded(!isExpanded)}
             toggledIcon={<FiMinus />}
             untoggledIcon={<FiPlus />}
-            iconSize={24}
             className="answer-list__expand-button"
           >
             {isExpanded ? t("showFewer") : t("showMore")}

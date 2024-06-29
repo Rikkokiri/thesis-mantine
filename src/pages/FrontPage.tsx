@@ -20,11 +20,16 @@ export const FrontPage = () => {
 
   return (
     <>
-      <Box p={24} bg="primaryBg" style={{ textAlign: "center" }}>
+      <Box p={24} bg="bgCard" style={{ textAlign: "center" }}>
         <Title order={1} size="h2" mb="md">
           {t("frontPage.title")}
         </Title>
-        <Button leftSection={<FiChevronRight />} onClick={startCompass}>
+        <Button
+          rightSection={<FiChevronRight size={20} />}
+          onClick={startCompass}
+          size="md"
+          variant="filled"
+        >
           {t("frontPage.start")}
         </Button>
       </Box>
