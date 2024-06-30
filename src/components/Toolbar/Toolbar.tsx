@@ -13,10 +13,11 @@ export const Toolbar = () => {
       className={classes.toolbar}
       component="header"
       align="center"
+      justify="center"
       px="1.5rem"
       h={theme.other.toolbarHeight} // Token from theme can be used to style components
     >
-      <Flex component="nav" className={classes.nav} align="center" justify="center" fw="700">
+      <Flex component="nav" className={classes.nav} align="center" justify="flex-start" fw="700">
         <Flex gap="1.5rem" align="center">
           <Box h="2.5rem" w="2.5rem" bg="var(--yle-logo)" style={{ borderRadius: "2px" }}></Box>
           <Link to={Route.ROOT}>{t("navigation.frontPage")}</Link>

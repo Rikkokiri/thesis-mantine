@@ -55,9 +55,9 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
               size="md"
               untoggledIcon={
                 option.value === YesNoAnswer.YES ? (
-                  <RiThumbUpLine size={24} />
+                  <RiThumbUpLine size={20} />
                 ) : (
-                  <RiThumbDownLine size={24} />
+                  <RiThumbDownLine size={20} />
                 )
               }
             >

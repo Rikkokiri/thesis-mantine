@@ -12,7 +12,7 @@ export const CandidateIntroHeader = (props: ReturnType<typeof useCandidateInfo>)
   return (
     <Box className={styles.header}>
       <Box>
-        <Text size="sm" fw="700">
+        <Text size="sm" fw="700" c="var(--heading-primary)">
           {t("electionName")}
         </Text>
         <Title order={1} size="h1">

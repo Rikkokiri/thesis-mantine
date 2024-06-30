@@ -28,8 +28,7 @@ export const QuestionsPage = () => {
         // bg="card" // I don't know why this definition does not work?
         bg="var(--card-bg)"
       >
-        {/* TODO: color: var(--heading-primary); */}
-        <Text size="sm" fw="700">
+        <Text size="sm" fw="700" c="var(--heading-primary)">
           {t("electionName")}
         </Text>
         <Title order={1} size="h2">

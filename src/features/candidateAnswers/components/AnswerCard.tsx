@@ -1,11 +1,10 @@
 import "../styles/AnswerCard.css";
-import { Text } from "@mantine/core";
+import { Badge, Text } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { Question } from "@data/types";
 import { CandidateAnswer } from "@data/candidateAnswers";
 import { useLocalizedString } from "@hooks/useLocalizedString";
 import { getAnswerByQuestionId } from "@stores/answerStore";
-import { Tag } from "../../../components/Tag/Tag";
 import { RadioAnswer } from "./RadioAnswer";
 import { YesOrNoAnswer } from "./YesOrNoAnswer";
 import { CommentCard } from "./CommentCard";
@@ -24,16 +23,14 @@ export const AnswerCard = (props: ICardProps) => {
   const { localize } = useLocalizedString();
   const questionId = question.id;
 
-  const candidateComment = candidateAnswer?.comment
-    ? localize(candidateAnswer.comment)
-    : undefined;
+  const candidateComment = candidateAnswer?.comment ? localize(candidateAnswer.comment) : undefined;
 
   const userAnswer = getAnswerByQuestionId(question.id);
 
   return (
     <section className="answer-card">
       <RowCentered gap="lg">
-        <Tag variant="negative">{`${question.position}/${questionsCount}`}</Tag>
+        <Badge variant="light">{`${question.position}/${questionsCount}`}</Badge>
       </RowCentered>
       <Text size="xxl" fw="900" ta="center" className="question">
         {question.question.en}

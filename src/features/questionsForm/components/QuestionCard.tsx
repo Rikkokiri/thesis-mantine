@@ -1,8 +1,7 @@
-import { Flex, Text, useMantineTheme } from "@mantine/core";
+import { Badge, Flex, Text, useMantineTheme } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { ToggleButton } from "../../../components/ToggleButton/ToggleButton";
 import { FiEyeOff } from "react-icons/fi";
-import { Tag } from "../../../components/Tag/Tag";
 import { Category, Question } from "@data/types";
 import { Answer } from "@stores/answerStore";
 import { RadioQuestion } from "./RadioQuestion";
@@ -40,7 +39,7 @@ export const QuestionCard = (props: ICardProps) => {
       px="1.5rem"
     >
       <RowCentered gap="lg">
-        <Tag>{`${questionNumber}/${questionsCount}`}</Tag>
+        <Badge variant="filled">{`${questionNumber}/${questionsCount}`}</Badge>
         <Text size="xs" fw="700">
           {category.name.en}
         </Text>
