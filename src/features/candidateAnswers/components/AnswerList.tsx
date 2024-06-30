@@ -1,4 +1,4 @@
-import "../styles/AnswerList.css";
+import classes from "../styles/AnswerList.module.css";
 import { useState } from "react";
 import { SectionCard } from "@components/SectionCard.tsx/SectionCard";
 import { ToggleButton } from "@components/ToggleButton/ToggleButton";
@@ -15,10 +15,11 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
 
   return (
     <Box component="article" w="100%" className="answer-list">
-      <SectionCard title={t("candidateSections.answers")}>
+      <SectionCard title={t("candidateSections.answers")} contentPadding={0}>
         <>
           {questionsToShow.map((question) => (
             <AnswerCard
+              className={classes.card}
               key={question.id}
               question={question}
               candidateAnswer={candidateAnswers[question.id] ?? { answer: null }}
@@ -34,7 +35,7 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
             onClick={() => setExpanded(!isExpanded)}
             toggledIcon={<FiMinus size={24} />}
             untoggledIcon={<FiPlus size={24} />}
-            size="md"
+            toggledClassName=""
           >
             {isExpanded ? t("showFewer") : t("showMore")}
           </ToggleButton>

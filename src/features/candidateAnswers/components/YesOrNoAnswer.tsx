@@ -42,8 +42,6 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
           <Flex key={option.value} direction="column" align="center">
             <ToggleButton
               disabled
-              variant="outline"
-              toggledVariant="outline"
               isToggled={isToggled}
               toggledIcon={
                 <CandidateIndicator
@@ -52,7 +50,6 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
                 />
               }
               mt={8}
-              size="md"
               untoggledIcon={
                 option.value === YesNoAnswer.YES ? (
                   <RiThumbUpLine size={20} />

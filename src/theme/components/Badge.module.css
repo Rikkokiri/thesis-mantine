@@ -15,5 +15,6 @@
   &[data-variant="light"] {
     color: var(--tag-negative-text);
     background-color: var(--tag-negative-bg);
+    border-width: 0;
   }
 }

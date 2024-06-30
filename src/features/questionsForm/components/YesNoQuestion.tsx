@@ -21,9 +21,6 @@ export const YesNoQuestion = (props: IYesNoQuestionProps) => {
         onClick={() => answerQuestion(questionId, YesNoAnswer.YES)}
         untoggledIcon={<RiThumbUpLine size={20} />}
         toggledIcon={<RiThumbUpFill size={20} />}
-        size="md"
-        variant="outline"
-        toggledVariant="outline"
       >
         {t("question.yes")}
       </ToggleButton>
@@ -32,9 +29,6 @@ export const YesNoQuestion = (props: IYesNoQuestionProps) => {
         onClick={() => answerQuestion(questionId, YesNoAnswer.NO)}
         untoggledIcon={<RiThumbDownLine size={20} />}
         toggledIcon={<RiThumbDownFill size={20} />}
-        size="md"
-        variant="outline"
-        toggledVariant="outline"
       >
         {t("question.no")}
       </ToggleButton>

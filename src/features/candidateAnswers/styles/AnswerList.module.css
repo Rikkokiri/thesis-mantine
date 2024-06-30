@@ -1,0 +1,7 @@
+.card {
+  border-bottom: 1px solid var(--bg-body);
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}

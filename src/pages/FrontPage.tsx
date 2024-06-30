@@ -24,12 +24,7 @@ export const FrontPage = () => {
         <Title order={1} size="h2" mb="md">
           {t("frontPage.title")}
         </Title>
-        <Button
-          rightSection={<FiChevronRight size={20} />}
-          onClick={startCompass}
-          size="md"
-          variant="filled"
-        >
+        <Button rightSection={<FiChevronRight size={20} />} onClick={startCompass}>
           {t("frontPage.start")}
         </Button>
       </Box>

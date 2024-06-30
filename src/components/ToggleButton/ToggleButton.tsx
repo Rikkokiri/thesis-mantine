@@ -17,13 +17,16 @@ export const ToggleButton = ({
   toggledIcon,
   variant = "outline",
   toggledVariant = "outline",
+  toggledClassName = "toggled", // This is a class name that is added when the button is toggled. Changing it removes default toggle style
   className,
   ...rest
 }: IToggleButtonProps) => {
+  const toggleStyles = isToggled ? styles[toggledClassName] : "";
+
   return (
     <Button
       leftSection={isToggled ? toggledIcon : untoggledIcon}
-      className={`${isToggled && styles.toggled} ${className || ""}`}
+      className={`${toggleStyles} ${className || ""}`}
       variant={isToggled ? toggledVariant : variant}
       {...rest}
     />

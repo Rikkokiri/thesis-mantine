@@ -1,6 +1,7 @@
 import { createTheme, CSSVariablesResolver } from "@mantine/core";
 import { colors } from "./colors";
 import { componentStyles } from "./components";
+import focusClasses from "./focus.module.css";
 
 export const themeOverride = createTheme({
   /** Controls focus ring styles. Supports the following options:
@@ -9,6 +10,10 @@ export const themeOverride = createTheme({
    *  - `never` – focus ring is always hidden (not recommended)
    */
   focusRing: "auto",
+  /** Class added to the elements that have focus styles, for example, `Button` or `ActionIcon`.
+   *  Overrides `theme.focusRing` property.
+   */
+  focusClassName: focusClasses["focus-auto"],
   /** rem units scale, change if you customize font-size of `<html />` element
    *  default value is `1` (for `100%`/`16px` font-size on `<html />`)
    */

@@ -1,4 +1,4 @@
-import { Badge, Button, MantineThemeComponents, Modal, Title } from "@mantine/core";
+import { Badge, Button, Divider, MantineThemeComponents, Modal, Title } from "@mantine/core";
 import badgeClasses from "./Badge.module.css";
 import buttonClasses from "./Button.module.css";
 import modalClasses from "./Modal.module.css";
@@ -10,7 +10,12 @@ export const componentStyles: MantineThemeComponents = {
   }),
   Button: Button.extend({
     classNames: buttonClasses,
+    defaultProps: {
+      variant: "filled",
+      size: "md",
+    },
   }),
+  Divider: Divider.extend({}),
   Modal: Modal.extend({ classNames: modalClasses }),
   Title: Title.extend({
     classNames: titleClasses,

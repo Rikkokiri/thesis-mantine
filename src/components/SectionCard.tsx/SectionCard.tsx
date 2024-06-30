@@ -1,19 +1,19 @@
 import { ReactNode } from "react";
-import "./SectionCard.css";
-import { Title } from "@mantine/core";
+import { Box, Paper, Title } from "@mantine/core";
 
 interface SectionCardProps {
   title: string;
   children: ReactNode;
+  contentPadding?: number | string;
 }
 
-export const SectionCard = (props: SectionCardProps) => (
-  <section className="section-card">
-    <div className="section-card__header">
+export const SectionCard = ({ contentPadding = 24, ...props }: SectionCardProps) => (
+  <Paper w="100%" bg="var(--card-bg)">
+    <Box p="21px 24px 16px" style={{ borderBottom: "var(--section-card-header-border)" }}>
       <Title order={2} size="h3">
         {props.title}
       </Title>
-    </div>
-    <div className="section-card__content">{props.children}</div>
-  </section>
+    </Box>
+    <Box p={contentPadding}>{props.children}</Box>
+  </Paper>
 );

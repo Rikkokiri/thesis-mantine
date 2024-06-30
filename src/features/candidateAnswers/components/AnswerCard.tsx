@@ -1,5 +1,5 @@
 import classes from "../styles/AnswerCard.module.css";
-import { Badge, Flex, Text } from "@mantine/core";
+import { Badge, BoxProps, Flex, Text } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { Question } from "@data/types";
 import { CandidateAnswer } from "@data/candidateAnswers";
@@ -10,7 +10,7 @@ import { YesOrNoAnswer } from "./YesOrNoAnswer";
 import { CommentCard } from "./CommentCard";
 import { RowCentered } from "@/layout";
 
-interface ICardProps {
+interface ICardProps extends BoxProps {
   question: Question;
   candidateAnswer: CandidateAnswer;
   questionsCount: number;
@@ -28,7 +28,11 @@ export const AnswerCard = (props: ICardProps) => {
   const userAnswer = getAnswerByQuestionId(question.id);
 
   return (
-    <Flex component="section" direction="column" className={classes.card}>
+    <Flex
+      component="section"
+      direction="column"
+      className={`${classes.card} ${props.className ?? ""}`}
+    >
       <RowCentered gap="lg">
         <Badge variant="light">{`${question.position}/${questionsCount}`}</Badge>
       </RowCentered>

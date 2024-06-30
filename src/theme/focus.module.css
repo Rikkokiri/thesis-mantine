@@ -1,0 +1,8 @@
+/* Use `&:focus-visible` when you want focus ring to be visible
+   only when user navigates with keyboard, for example by pressing Tab key */
+.focus-auto {
+  &:focus-visible {
+    outline: 2px solid var(--focus-outline-primary);
+    outline-offset: 2px;
+  }
+}
