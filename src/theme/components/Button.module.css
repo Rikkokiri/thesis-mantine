@@ -46,6 +46,16 @@
     }
   }
 
-  /* TODO: Variant "subtle" */
-  /* TODO: Variant "transparent" */
+  &[data-variant="subtle"] {
+    color: var(--button-outline);
+    border-width: 0;
+
+    &:hover {
+      background-color: var(--button-outline-bg-hover);
+    }
+  }
+
+  &[data-variant="transparent"] {
+    color: var(--button-outline);
+  }
 }

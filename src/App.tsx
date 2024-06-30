@@ -4,23 +4,24 @@ import { useDetectTheme } from "@hooks/useDetectTheme";
 import { useEffect } from "react";
 import { Flex, MantineProvider } from "@mantine/core";
 import { cssResolver, themeOverride } from "./theme";
-import { useColorScheme } from "@mantine/hooks";
+// import { useColorScheme } from "@mantine/hooks";
 import { AppFooter } from "./layout/footer";
 
 function App() {
-  const { prefersDarkMode, setActiveTheme } = useDetectTheme();
+  const { prefersDarkMode } = useDetectTheme();
 
   useEffect(() => {
-    setActiveTheme(prefersDarkMode);
-  }, [prefersDarkMode, setActiveTheme]);
+    // setActiveTheme(prefersDarkMode);
+    console.log("prefersDarkMode", prefersDarkMode);
+  }, [prefersDarkMode]);
 
-  const colorScheme = useColorScheme();
+  // const colorScheme = useColorScheme();
 
   return (
     <MantineProvider
       theme={{
         ...themeOverride,
-        primaryColor: colorScheme === "light" ? "blueBlack" : "gray",
+        // primaryColor: colorScheme === "light" ? "blueBlack" : "gray",
       }}
       cssVariablesResolver={cssResolver}
       defaultColorScheme="auto"

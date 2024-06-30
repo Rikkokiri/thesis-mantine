@@ -9,7 +9,7 @@ export const QuestionsList = (props: IQuestionsForm) => {
   return (
     <Box component="section" w="100%">
       {categoriesAndQuestions.map((category) => (
-        <Stack component="article" key={category.id} align="center">
+        <Stack component="article" key={category.id} align="center" gap="lg" mb="lg">
           {category.questions.map((question: Question) => (
             <QuestionCard
               key={question.id}

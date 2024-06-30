@@ -20,7 +20,7 @@ export const FrontPage = () => {
 
   return (
     <>
-      <Box p={24} bg="bgCard" style={{ textAlign: "center" }}>
+      <Box p={24} bg="var(--card-bg)" w="100%" style={{ textAlign: "center" }}>
         <Title order={1} size="h2" mb="md">
           {t("frontPage.title")}
         </Title>
@@ -33,7 +33,7 @@ export const FrontPage = () => {
           {t("frontPage.start")}
         </Button>
       </Box>
-      <PageSectionsColumn my="xl">
+      <PageSectionsColumn my="lg">
         <SectionCard title={t("candidates")}>
           <div></div>
         </SectionCard>

@@ -14,6 +14,12 @@ Cypress.Commands.add(
             matches: theme === "dark",
             addEventListener: () => {},
             removeEventListener: () => {},
+          })
+          .withArgs("(prefers-reduced-motion: reduce)")
+          .returns({
+            matches: false,
+            addEventListener: () => {},
+            removeEventListener: () => {},
           });
       },
       ...options,

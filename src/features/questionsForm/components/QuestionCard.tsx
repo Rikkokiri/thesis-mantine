@@ -36,7 +36,6 @@ export const QuestionCard = (props: ICardProps) => {
       bg="var(--card-bg)"
       maw={theme.other.cardMaxWidth}
       w="100%"
-      mb="1.5rem"
       py="5rem"
       px="1.5rem"
     >

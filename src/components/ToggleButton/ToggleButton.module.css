@@ -1,0 +1,6 @@
+.toggled {
+  &[data-variant="outline"],
+  &[data-variant="subtle"] {
+    background-color: var(--button-toggled-bg);
+  }
+}

@@ -5,5 +5,5 @@ export const PageSectionsColumn = (props: StackProps) => {
 };
 
 export const RowCentered = (props: GroupProps) => {
-  return <Group align="center" justify="center" w="100%" {...props} />;
+  return <Group align="center" justify="center" w="100%" gap={0} {...props} />;
 };

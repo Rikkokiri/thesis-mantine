@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
-import { Button, Flex, Stack, Text, Title } from "@mantine/core";
+import { Button, Flex, Text, Title } from "@mantine/core";
 import { FiArrowDown } from "react-icons/fi";
 import { CandidatesMatch } from "src/features/candidatesMatch";
 import { getQuestionsTotalCount } from "@data/api";
@@ -18,8 +18,9 @@ export const QuestionsPage = () => {
   return (
     <>
       {inView && <CandidatesMatch />}
-      <Stack
+      <Flex
         component="section"
+        direction="column"
         align="center"
         py="2rem"
         w="100%"
@@ -51,7 +52,7 @@ export const QuestionsPage = () => {
           {t("questionPage.findYourCandidate")}
         </Button>
         <div ref={questionsStartRef} />
-      </Stack>
+      </Flex>
       <Flex ref={ref} w="100%" direction="column" pt="1.5rem" align="center">
         <QuestionForm />
       </Flex>

@@ -1,0 +1,14 @@
+.toolbar {
+  a {
+    text-decoration: none;
+  }
+
+  box-shadow: var(--black-15) 0 0 7px 0;
+  position: relative;
+  background: var(--toolbar-bg);
+  z-index: 1;
+}
+
+.nav {
+  max-width: var(--toolbar-max-width);
+}
