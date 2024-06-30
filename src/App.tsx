@@ -1,26 +1,18 @@
 import { Outlet } from "react-router-dom";
 import { Toolbar } from "./components/Toolbar/Toolbar";
-import { useDetectTheme } from "@hooks/useDetectTheme";
-import { useEffect } from "react";
 import { Flex, MantineProvider } from "@mantine/core";
 import { cssResolver, themeOverride } from "./theme";
-// import { useColorScheme } from "@mantine/hooks";
 import { AppFooter } from "./layout/footer";
 
 function App() {
-  const { prefersDarkMode } = useDetectTheme();
-
-  useEffect(() => {
-    // setActiveTheme(prefersDarkMode);
-    console.log("prefersDarkMode", prefersDarkMode);
-  }, [prefersDarkMode]);
-
   // const colorScheme = useColorScheme();
 
   return (
     <MantineProvider
       theme={{
         ...themeOverride,
+        // Found it easier to not use primaryColor in theme
+        // as it generated CSS variables I did not need
         // primaryColor: colorScheme === "light" ? "blueBlack" : "gray",
       }}
       cssVariablesResolver={cssResolver}

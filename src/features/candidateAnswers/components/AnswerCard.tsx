@@ -1,5 +1,5 @@
-import "../styles/AnswerCard.css";
-import { Badge, Text } from "@mantine/core";
+import classes from "../styles/AnswerCard.module.css";
+import { Badge, Flex, Text } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { Question } from "@data/types";
 import { CandidateAnswer } from "@data/candidateAnswers";
@@ -28,11 +28,11 @@ export const AnswerCard = (props: ICardProps) => {
   const userAnswer = getAnswerByQuestionId(question.id);
 
   return (
-    <section className="answer-card">
+    <Flex component="section" direction="column" className={classes.card}>
       <RowCentered gap="lg">
         <Badge variant="light">{`${question.position}/${questionsCount}`}</Badge>
       </RowCentered>
-      <Text size="xxl" fw="900" ta="center" className="question">
+      <Text size="xxl" fw="900" ta="center" className={classes.question}>
         {question.question.en}
       </Text>
       {question.questionType === "yes-no" ? (
@@ -59,6 +59,6 @@ export const AnswerCard = (props: ICardProps) => {
           answer={candidateAnswer?.answer}
         />
       )}
-    </section>
+    </Flex>
   );
 };

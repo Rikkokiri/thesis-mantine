@@ -1,0 +1,12 @@
+.card {
+  align-items: center;
+  background-color: var(--card-bg);
+  padding: 24px;
+  border-radius: var(--mantine-radius-default);
+  max-width: var(--card-max-width);
+}
+
+.question {
+  max-width: 343px;
+  margin: 20px 0;
+}

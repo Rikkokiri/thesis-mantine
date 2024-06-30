@@ -35,9 +35,6 @@ export const AnswerList = (props: ReturnType<typeof useCandidateAnswers>) => {
             toggledIcon={<FiMinus size={24} />}
             untoggledIcon={<FiPlus size={24} />}
             size="md"
-            variant="outline"
-            toggledVariant="outline"
-            className="answer-list__expand-button"
           >
             {isExpanded ? t("showFewer") : t("showMore")}
           </ToggleButton>

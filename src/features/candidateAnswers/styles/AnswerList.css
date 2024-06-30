@@ -1,3 +1,5 @@
+/* TODO: Mantine - Refactor out of use? */
+
 .answer-list .section-card__content {
   padding: 0;
 }
@@ -8,12 +10,4 @@
 
 .answer-list .answer-card:last-of-type {
   border-bottom: none;
-}
-
-.answer-list__expand-button.toggled {
-  background-color: transparent;
-}
-
-.answer-list__expand-button:hover {
-  background-color: var(--button-outline-bg-hover);
 }
