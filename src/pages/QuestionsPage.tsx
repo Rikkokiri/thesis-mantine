@@ -21,15 +21,12 @@ export const QuestionsPage = () => {
       {inView && <CandidatesMatch />}
       <section className="question-page__header">
         <p className="subtitle m-0">{t("electionName")}</p>
-        <h1 className="heading-1 question-page__title">
-          {t("questionPage.findYourCandidate")}
-        </h1>
+        <h1 className="heading-1 question-page__title">{t("questionPage.findYourCandidate")}</h1>
         <p className="page-intro">{t("questionPage.description")}</p>
 
         <Button
           iconBefore={<FiArrowDown />}
           onClick={() => {
-            console.log("Scroll to first question!");
             questionsStartRef.current?.scrollIntoView({
               behavior: "smooth",
             });
