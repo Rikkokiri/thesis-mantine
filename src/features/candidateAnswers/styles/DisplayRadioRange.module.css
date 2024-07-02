@@ -1,0 +1,42 @@
+.group {
+  position: relative;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: var(--radio-range-max-width);
+
+  &::before {
+    content: " ";
+    height: 0.25rem;
+    width: calc(100% - 2rem);
+    background-color: var(--radio-background);
+    position: absolute;
+    top: calc(2rem / 2 - 0.25rem / 2);
+    left: 1rem;
+  }
+}
+
+.optionWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  place-items: center start;
+  width: 2rem;
+  text-align: center;
+
+  &:first-of-type {
+    text-align: left;
+  }
+
+  &:last-of-type {
+    text-align: right;
+  }
+}
+
+.indicator {
+  position: absolute;
+  top: 0.25rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+}

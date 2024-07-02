@@ -1,5 +1,6 @@
+import { Radio, Group, Flex } from "@mantine/core";
 import { QuestionType } from "@data/types";
-import "../styles/DisplayRadioRange.css";
+import classes from "../styles/DisplayRadioRange.module.css";
 import { useTranslation } from "react-i18next";
 import { SmallSpeechBubble } from "./SmallSpeechBubble";
 import { CandidateIndicator } from "./CandidateIndicator";
@@ -25,47 +26,45 @@ export const DisplayRadioRange = (props: IDisplayRadioRangeProps) => {
   const { userAnswer, candidateAnswer } = props;
 
   return (
-    <div className="radio-display">
+    <Group className={classes.group} mt={!userAnswer ? 0 : "70px"}>
       {props.options.map((option) => {
-        const optionClass = option.optionClassName ?? "";
-
         return (
-          <div
-            className={`radio-display__option ${optionClass}`}
-            key={`radio-option-${option.value}`}
-          >
-            <input
-              type="radio"
-              name="radio-option"
-              id={`radio-option-${option.value}`}
+          <Flex className={classes.optionWrapper} key={`radio-option-${option.value}`}>
+            <Radio
               value={option.value}
+              label={option.label}
               checked={option.isChecked}
               readOnly
-              className={props.isReadonly ? "readonly" : ""}
+              iconColor={option.value >= 3 ? "var(--agree)" : "var(--disagree)"}
             />
-            {option.isChecked && (
-              <div className={`option__indicator ${option.indicatorClassName ?? ""}`}>
-                {candidateAnswer === option.value && (
-                  <CandidateIndicator
-                    imgSrc={option.indicatorImgSrc ?? ""}
-                    className="candidate-indicator"
-                    alt="" // TODO: Meaningful alt text
-                  />
-                )}
-              </div>
-            )}
-            <label>{option.label}</label>
-            {userAnswer === option.value && (
-              <SmallSpeechBubble
-                content={t("question.yourAnswer")}
-                answer={userAnswer}
-                questionType={QuestionType.AGREE_SCALE}
-                className="user-answer-bubble"
+            {option.isChecked && candidateAnswer === option.value && (
+              <CandidateIndicator
+                className={`${classes.indicator} ${option.indicatorClassName ?? ""}`}
+                imgSrc={option.indicatorImgSrc ?? ""}
+                style={{
+                  clipPath:
+                    userAnswer === option.value
+                      ? "polygon(-1px -1px, 50% -1px, 50% 100%, -1px 100%)"
+                      : "none",
+                }}
               />
             )}
-          </div>
+            {userAnswer === option.value && (
+              <SmallSpeechBubble
+                answer={userAnswer}
+                questionType={QuestionType.AGREE_SCALE}
+                style={{
+                  position: "absolute",
+                  bottom: "calc(100% + 10px)",
+                  textAlign: "center",
+                }}
+              >
+                {t("question.yourAnswer")}
+              </SmallSpeechBubble>
+            )}
+          </Flex>
         );
       })}
-    </div>
+    </Group>
   );
 };

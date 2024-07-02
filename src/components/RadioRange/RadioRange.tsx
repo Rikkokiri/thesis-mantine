@@ -1,40 +1,30 @@
-import "./RadioRange.css";
+import { Radio, Group } from "@mantine/core";
+import classes from "./RadioRange.module.css";
 
 interface RadioOption {
   value: number;
   label: string;
-  optionClassName?: string;
 }
 
 interface RadioRangeProps {
   options: RadioOption[];
   value: number | undefined;
-  onChange: (value: number) => void;
+  onChange: (value: string) => void;
   isReadonly?: boolean;
 }
 
 export const RadioRange = (props: RadioRangeProps) => (
-  <div className="radio-range">
-    {props.options.map((option, index) => {
-      const isChecked = props.value === option.value;
-      const optionClass = option.optionClassName ?? "";
-
-      return (
-        <div className={`radio-range__option ${optionClass}`} key={`radio-option-${option.value}`}>
-          <input
-            type="radio"
-            name="radio-option"
-            id={`radio-option-${option.value}`}
-            value={option.value}
-            checked={isChecked}
-            onChange={() => props.onChange(option.value)}
-            readOnly={!!props.isReadonly}
-            className={props.isReadonly ? "readonly" : ""}
-          />
-          {isChecked && <div className="option__indicator"></div>}
-          <label key={index}>{option.label}</label>
-        </div>
-      );
-    })}
-  </div>
+  <Radio.Group className={classes.group} onChange={props.onChange}>
+    <Group className={classes.radios}>
+      {props.options.map((option) => (
+        <Radio
+          key={option.value}
+          value={option.value.toString()}
+          iconColor={option.value >= 3 ? "var(--agree)" : "var(--disagree)"}
+          className={classes.radioRoot}
+          label={option.label}
+        />
+      ))}
+    </Group>
+  </Radio.Group>
 );

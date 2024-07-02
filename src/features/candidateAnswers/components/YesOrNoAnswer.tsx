@@ -43,12 +43,7 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
             <ToggleButton
               disabled
               isToggled={isToggled}
-              toggledIcon={
-                <CandidateIndicator
-                  alt="" // TODO: Pass a meaningful alt text
-                  imgSrc={candidateImgSrc}
-                />
-              }
+              toggledIcon={<CandidateIndicator imgSrc={candidateImgSrc} />}
               mt={8}
               untoggledIcon={
                 option.value === YesNoAnswer.YES ? (
@@ -62,11 +57,12 @@ export const YesOrNoAnswer = (props: IYesNoAnswerProps) => {
             </ToggleButton>
             {userAnswer === option.value && (
               <SmallSpeechBubble
-                content={t("question.yourAnswer")}
                 answer={userAnswer}
                 questionType={QuestionType.YES_NO}
                 className={classes["user-answer"]}
-              />
+              >
+                {t("question.yourAnswer")}
+              </SmallSpeechBubble>
             )}
           </Flex>
         );
